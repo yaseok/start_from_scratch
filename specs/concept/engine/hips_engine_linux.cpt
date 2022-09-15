@@ -1,0 +1,705 @@
+# HIPS:<hips_dut>에서 anse 엔진 드라이버 패키지를 설치한다
+/* 로컬 파일:"../NSEL/nsel_package.tar.gz"을 Device:<hips_dut>의 경로:"/tmp/nsel_package.tar.gz"로 업로드 한다
+* 로컬 파일:"../NSEL/nsel_package.tar.gz"을 Device:<hips_dut>의 경로:"/tmp/nsel_package.tar.gz"로 SCP 복사 한다
+* <hips_dut>에서 "cd /tmp"를 실행한다
+* <hips_dut>에서 "tar xvfz nsel_package.tar.gz"를 실행한다
+* <hips_dut>에서 "rm -rf /tmp/xvfz nsel_package.tar.gz"를 실행한다
+* <hips_dut>에서 "cd /tmp/nsel_package/"를 실행한다
+* <hips_dut>에서 "kernel=$(uname -r)"를 실행한다
+* <hips_dut>에서 "ls -r |grep $kernel |head -n 1 > /tmp/pkgname"를 실행한다
+* <hips_dut>에서 "rm -rf `ls |grep -v $kernel`"를 실행한다
+* <hips_dut>에서 "tar xvfz `cat /tmp/pkgname`"를 실행한다
+* <hips_dut>에서 "cd `cat /tmp/pkgname | rev | cut -c 8- | rev`"를 실행한다
+* <hips_dut>에서 "./install.sh"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+
+# HIPS:<hips_dut>에서 NSEL 패키지를 설치한다 (Local)
+* <hips_dut>에서 "curl -O http://192.168.108.253/download/nsel_testsuite_package.tar.gz"를 실행한다
+* <hips_dut>에서 "mv /root/nsel_* /tmp"를 실행한다
+* <hips_dut>에서 "cd /tmp"를 실행한다
+* <hips_dut>에서 "tar xvfz nsel_package.tar.gz"를 실행한다
+* <hips_dut>에서 "rm -rf /tmp/xvfz nsel_package.tar.gz"를 실행한다
+* <hips_dut>에서 "cd /tmp/nsel_package/"를 실행한다
+* <hips_dut>에서 "kernel=$(uname -r)"를 실행한다
+* <hips_dut>에서 "ls -r |grep $kernel |head -n 1 > /tmp/pkgname"를 실행한다
+* <hips_dut>에서 "rm -rf `ls |grep -v $kernel`"를 실행한다
+* <hips_dut>에서 "tar xvfz `cat /tmp/pkgname`"를 실행한다
+* <hips_dut>에서 "cd `cat /tmp/pkgname | rev | cut -c 8- | rev`"를 실행한다
+* <hips_dut>에서 "./install.sh"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+* <hips_dut>에서 "cd /tmp"를 실행한다
+* <hips_dut>에서 "tar xvfz nsel_testsuite_package.tar.gz"를 실행한다
+* <hips_dut>에서 "cd nsel_testsuite"를 실행한다
+* <hips_dut>에서 "./install.sh"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+
+# HIPS:<hips_dut>에서 환경변수 업데이트한다
+* <hips_dut>에서 "export PATH=$PATH:/ahnlab/anse/bin:/ahnlab/anse/script/"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+
+# HIPS:<hips_dut>에서 anse 엔진 드라이버 패키지를 삭제한다
+* <hips_dut>에서 "cd /tmp/nsel_package/"를 실행한다
+* <hips_dut>에서 "find . -name \"*`uname -r`*\" > pkgname"를 실행한다
+* <hips_dut>에서 "cd `cat pkgname`"를 실행한다
+* <hips_dut>에서 "./uninstall.sh"를 실행한다
+* <hips_dut>에서 "rm -rf /tmp/nsel_package/"를 실행한다
+
+# HIPS:<hips_dut>에서 anse testsuite 패키지를 설치한다
+/* 로컬 파일:"../NSEL/nsel_testsuite_package.tar.gz"을 Device:<hips_dut>의 경로:"/tmp/nsel_testsuite_package.tar.gz"로 업로드 한다
+/* 로컬 파일:"../Engine/install.sh"을 Device:<hips_dut>의 경로:"/tmp/install.sh"로 업로드 한다
+* 로컬 파일:"../Engine/install.sh"을 Device:<hips_dut>의 경로:"/tmp/install.sh"로 SCP 복사 한다
+/* 로컬 파일:"../Engine/uninstall.sh"을 Device:<hips_dut>의 경로:"/tmp/uninstall.sh"로 업로드 한다
+* 로컬 파일:"../Engine/uninstall.sh"을 Device:<hips_dut>의 경로:"/tmp/uninstall.sh"로 SCP 복사 한다
+/* 로컬 파일:"../Engine/nsel_testsuite_package.tar.gz"을 Device:<hips_dut>의 경로:"/tmp/nsel_testsuite_package.tar.gz"로 업로드 한다
+* 로컬 파일:"../Engine/nsel_testsuite_package.tar.gz"을 Device:<hips_dut>의 경로:"/tmp/nsel_testsuite_package.tar.gz"로 SCP 복사 한다
+* <hips_dut>에서 "cd /tmp"를 실행한다
+* <hips_dut>에서 "tar xvfz nsel_testsuite_package.tar.gz"를 실행한다
+/* EXEC 실행 결과 코드는 "0"와 같다
+* <hips_dut>에서 "mv install.sh nsel_testsuite/"를 실행한다
+* <hips_dut>에서 "mv uninstall.sh nsel_testsuite/"를 실행한다
+* <hips_dut>에서 "cd nsel_testsuite"를 실행한다
+* <hips_dut>에서 "chmod 755 install.sh"를 실행한다
+* <hips_dut>에서 "chmod 755 uninstall.sh"를 실행한다
+* <hips_dut>에서 "./install.sh"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+* <hips_dut>에서 "find . -name \"suarez\" | head -n 1 > path"를 실행한다
+/* <hips_dut>에서 "mv `cat path`/conf/make_conf.sh `cat path`/conf/make_conf.sh.old"를 실행한다
+/* 로컬 파일:"data/engine/make_conf.sh"을 Device:<hips_dut>의 경로:"/tmp/make_conf.sh"로 SCP 복사 한다
+/* <hips_dut>에서 "chmod 740 /tmp/make_conf.sh"를 실행한다
+/* <hips_dut>에서 "mv /tmp/make_conf.sh `cat path`/conf/make_conf.sh"를 실행한다
+* <hips_dut>에서 "cd `cat path`"를 실행한다
+/* <hips_dut>에서 "cd x86_64/amazon2/suarez/"를 실행한다
+* EXEC 실행 결과 코드는 "0", 결과 메시지는 ""와 같다
+* <hips_dut>에서 "./install.sh -u http://192.168.190.1 -s XXXXXXXX-XXXXXXXX"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+* <hips_dut>에서 "./qa_run.sh"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+
+# HIPS:<hips_dut>에서 anse testsuite 패키지를 설치한다 (Local)
+* <hips_dut>에서 "cd /tmp"를 실행한다
+* <hips_dut>에서 "curl -O http://192.168.108.253/download/nsel_testsuite_package.tar.gz"를 실행한다
+* <hips_dut>에서 "tar xvfz nsel_testsuite_package.tar.gz"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+* <hips_dut>에서 "cd nsel_testsuite"를 실행한다
+* EXEC 실행 결과 코드는 "0", 결과 메시지는 ""와 같다
+* <hips_dut>에서 "./install.sh"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+* <hips_dut>에서 "cd x86_64/amazon2/suarez/"를 실행한다
+* EXEC 실행 결과 코드는 "0", 결과 메시지는 ""와 같다
+* <hips_dut>에서 "./install.sh -u http://192.168.190.1 -s XXXXXXXX-XXXXXXXX"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+* <hips_dut>에서 "./qa_run.sh"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+
+# HIPS:<hips_dut>에서 anse testsuite 패키지를 삭제한다
+* <hips_dut>에서 "cd /tmp/nsel_testsuite"를 실행한다
+* EXEC 실행 결과 코드는 "0", 결과 메시지는 ""와 같다
+* <hips_dut>에서 "chmod 777 uninstall.sh"를 실행한다
+* <hips_dut>에서 "./uninstall.sh"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+
+# HIPS:<hips_dut>에서 anse_mon을 데몬 모드로 실행 후 구동상태 확인한다
+* <hips_dut>에서 "anse_mon -d"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+* Device:<hips_dut>에서 프로세스:"anse_mon" 확인시 동작 상태가 "true"이다
+
+# HIPS:<hips_dut>에서 anse_mon을 pcap 모드로 실행 후 구동상태 확인한다
+* <hips_dut>에서 "anse_mon -m pcap -v -d"를 실행한다
+* <hips_dut>에서 "anse_ctl server load"를 실행한다
+* <hips_dut>에서 "anse_ctl engine init"를 실행한다
+* <hips_dut>에서 "anse_ctl engine chcb json /tmp/engine_event.json"를 실행한다
+* Device:<hips_dut>에서 프로세스:"anse_mon" 확인시 동작 상태가 "true"이다
+
+# HIPS:<hips_dut>에서 anse_mon을 종료 후 구동상태 확인한다
+* <hips_dut>에서 "anse_ctl server term"를 실행한다
+/* EXEC 실행 결과 코드는 "0"와 같다
+/* Device:<hips_dut>에서 프로세스:"anse_mon" 확인시 동작 상태가 "false"이다
+
+# HIPS:<hips_dut>에서 엔진 드라이버를 초기화 한다
+* <hips_dut>에서 "anse_ctl server load"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+* <hips_dut>에서 "anse_ctl driver load"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+* <hips_dut>에서 "anse_ctl driver init"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+* <hips_dut>에서 "anse_ctl engine init"를 실행한다
+/* EXEC 실행 결과 코드는 "61"와 같다
+* <hips_dut>에서 "echo $?"를 실행한다
+* <hips_dut>에서 "anse_ctl driver start"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+
+# HIPS:<hips_dut>에서 엔진 드라이버를 종료한다
+* <hips_dut>에서 "anse_ctl engine deinit"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+* <hips_dut>에서 "anse_ctl server unload"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+
+
+# HIPS:<hips_dut>에 엔진 테스트 환경 Initialize
+* HIPS:<hips_dut>에서 anse testsuite 패키지를 설치한다
+* HIPS:<hips_dut>에서 환경변수 업데이트한다
+* HIPS:<hips_dut>에서 anse_mon을 데몬 모드로 실행 후 구동상태 확인한다
+* HIPS:<hips_dut>에서 anse_mon을 종료 후 구동상태 확인한다
+* HIPS:<hips_dut>에서 anse_mon을 데몬 모드로 실행 후 구동상태 확인한다
+* HIPS:<hips_dut>에서 엔진 드라이버를 초기화 한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 "engine chcb json /tmp/engine_event.json" 명령을 수행한다
+
+# HIPS:<hips_dut>에 엔진 테스트 환경 Initialize (/run)
+* <hips_dut>에서 "rm -rf /var/run"를 실행한다
+* <hips_dut>에서 "mkdir /run"를 실행한다
+* HIPS:<hips_dut>에서 anse testsuite 패키지를 설치한다
+* HIPS:<hips_dut>에서 환경변수 업데이트한다
+* HIPS:<hips_dut>에서 anse_mon을 데몬 모드로 실행 후 구동상태 확인한다
+* HIPS:<hips_dut>에서 anse_mon을 종료 후 구동상태 확인한다
+* HIPS:<hips_dut>에서 anse_mon을 데몬 모드로 실행 후 구동상태 확인한다
+* HIPS:<hips_dut>에서 엔진 드라이버를 초기화 한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 "engine chcb json /tmp/engine_event.json" 명령을 수행한다
+
+# HIPS:<hips_dut>에 엔진 테스트 환경 Initialize (Local)
+* HIPS:<hips_dut>에서 anse testsuite 패키지를 설치한다 (Local)
+* HIPS:<hips_dut>에서 환경변수 업데이트한다
+* HIPS:<hips_dut>에서 anse_mon을 데몬 모드로 실행 후 구동상태 확인한다
+* HIPS:<hips_dut>에서 anse_mon을 종료 후 구동상태 확인한다
+* HIPS:<hips_dut>에서 anse_mon을 데몬 모드로 실행 후 구동상태 확인한다
+* HIPS:<hips_dut>에서 엔진 드라이버를 초기화 한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 "engine chcb json /tmp/engine_event.json" 명령을 수행한다
+
+# HIPS:<hips_dut>에 엔진을 drive 모드로 구동한다
+* <hips_dut>에서 "anse_ctl engine deinit"를 실행한다
+* <hips_dut>에서 "anse_ctl server unload"를 실행한다
+* <hips_dut>에서 "anse_ctl server term"를 실행한다
+* HIPS:<hips_dut>에서 환경변수 업데이트한다
+* HIPS:<hips_dut>에서 anse_mon을 데몬 모드로 실행 후 구동상태 확인한다
+* HIPS:<hips_dut>에서 엔진 드라이버를 초기화 한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 "engine chcb json /tmp/engine_event.json" 명령을 수행한다
+
+# HIPS:<hips_dut>에 엔진 테스트 환경 Finalize
+* HIPS:<hips_dut>에서 엔진 드라이버를 종료한다
+* HIPS:<hips_dut>에서 anse_mon을 종료 후 구동상태 확인한다
+\* HIPS:<hips_dut>에서 anse 엔진 드라이버 패키지를 삭제한다
+* HIPS:<hips_dut>에서 anse testsuite 패키지를 삭제한다
+
+# HIPS:<hips_dut>에서 엔진의 구동모드를 <mode>로 변경한다
+* Json Name:"policy_hips_agent"을 File:"data/engine/policy_hips_agent.json"을 Load해서 생성한다
+* Json Name:"policy_hips_agent"의 XPATH:"policy_hips_agent.engine.mode"의 값을 String value:<mode>로 변경한다
+* Json Name:"policy_hips_agent"을 Device:<hips_dut>의 File:"/tmp/policy_hips_agent.json"에 저장한다
+* <hips_dut>에서 "anse_ctl -j engine apply /tmp/policy_hips_agent.json"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+
+# HIPS:<hips_dut>에서 엔진의 구동모드 확인시 <mode>이다
+* <hips_dut>에서 "anse_ctl -j driver runmode get"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+* EXEC 실행 결과의 Json XPath:"data"의 값은 String value:<mode>와 같다
+
+# HIPS:<hips_dut>에서 엔진의 Oversubscription 사용 여부를 <value>로 변경한다
+* Json Name:"policy_hips_agent"의 XPATH:"policy_hips_agent.engine.oversubscription"의 값을 Boolean value:<value>로 변경한다
+* Json Name:"policy_hips_agent"을 Device:<hips_dut>의 File:"/tmp/policy_hips_agent.json"에 저장한다
+* <hips_dut>에서 "anse_ctl -j engine apply /tmp/policy_hips_agent.json"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+
+# HIPS:<hips_dut>에서 엔진의 Oversubscription 사용 여부를 확인시 <value>이다
+* <hips_dut>에서 "anse_ctl -j driver oversub get"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+* EXEC 실행 결과의 Json XPath:"data"의 값은 String value:<value>와 같다
+
+// 기본 설정
+# HIPS:<hips_dut>에 pcap 테스트를 위한 기본 설정 파일을 저장하고 설정을 적용한다
+* Json Name:"policy_hips_ips_mgmt"을 File:"data/engine/policy_hips_ips_mgmt.json"을 Load해서 생성한다
+* Json Name:"policy_hips_ips_mgmt"의 XPATH:"policy_hips_ips_mgmt.enable"의 값을 Boolean value:"true"로 변경한다
+* Json Name:"policy_hips_ips_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_ips_mgmt.json"에 저장한다
+* Json Name:"signature_infra"을 File:"data/engine/signature_infra.json"을 Load해서 생성한다
+* Json Name:"signature_infra"을 Device:<hips_dut>의 File:"/tmp/signature_infra.json"에 저장한다
+* Json Name:"signature_user"을 File:"data/engine/signature_user.json"을 Load해서 생성한다
+* Json Name:"signature_user"을 Device:<hips_dut>의 File:"/tmp/signature_user.json"에 저장한다
+* Json Name:"policy_hips_fw_mgmt"을 File:"data/engine/policy_hips_firewall.json"을 Load해서 생성한다
+* Json Name:"policy_hips_fw_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_firewall.json"에 저장한다
+* Json Name:"policy_hips_agent"을 File:"data/engine/policy_hips_agent.json"을 Load해서 생성한다
+* Json Name:"policy_hips_agent"을 Device:<hips_dut>의 File:"/tmp/policy_hips_agent.json"에 저장한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_agent.json"을 적용한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_ips_mgmt.json /tmp/signature_infra.json /tmp/signature_user.json"을 적용한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_firewall.json"을 적용한다
+
+# HIPS:<hips_dut>에 IPS 테스트를 위한 기본 설정 파일을 저장하고 설정을 적용한다
+* Json Name:"policy_hips_ips_mgmt"을 File:"data/engine/policy_hips_ips_mgmt.json"을 Load해서 생성한다
+* Json Name:"policy_hips_ips_mgmt"의 XPATH:"policy_hips_ips_mgmt.enable"의 값을 Boolean value:"true"로 변경한다
+* Json Name:"policy_hips_ips_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_ips_mgmt.json"에 저장한다
+* Json Name:"signature_infra"을 File:"data/engine/signature_infra.json"을 Load해서 생성한다
+* Json Name:"signature_infra"을 Device:<hips_dut>의 File:"/tmp/signature_infra.json"에 저장한다
+* Json Name:"signature_user"을 File:"data/engine/signature_user.json"을 Load해서 생성한다
+* Json Name:"signature_user"을 Device:<hips_dut>의 File:"/tmp/signature_user.json"에 저장한다
+* Json Name:"policy_hips_fw_mgmt"을 File:"data/engine/policy_hips_firewall.json"을 Load해서 생성한다
+* Json Name:"policy_hips_fw_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_firewall.json"에 저장한다
+* Json Name:"policy_hips_agent"을 File:"data/engine/policy_hips_agent.json"을 Load해서 생성한다
+* Json Name:"policy_hips_agent"을 Device:<hips_dut>의 File:"/tmp/policy_hips_agent.json"에 저장한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_agent.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_ips_mgmt.json /tmp/signature_infra.json /tmp/signature_user.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_firewall.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+
+# HIPS:<hips_dut>에 방화벽 테스트를 위한 기본 설정 파일을 저장하고 설정을 적용한다
+* Json Name:"policy_hips_ips_mgmt"을 File:"data/engine/policy_hips_ips_mgmt.json"을 Load해서 생성한다
+* Json Name:"policy_hips_ips_mgmt"의 XPATH:"policy_hips_ips_mgmt.enable"의 값을 Boolean value:"false"로 변경한다
+* Json Name:"policy_hips_ips_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_ips_mgmt.json"에 저장한다
+* Json Name:"signature_infra"을 File:"data/engine/signature_infra.json"을 Load해서 생성한다
+* Json Name:"signature_infra"을 Device:<hips_dut>의 File:"/tmp/signature_infra.json"에 저장한다
+* Json Name:"signature_user"을 File:"data/engine/signature_user.json"을 Load해서 생성한다
+* Json Name:"signature_user"을 Device:<hips_dut>의 File:"/tmp/signature_user.json"에 저장한다
+* Json Name:"policy_hips_fw_mgmt"을 File:"data/engine/policy_hips_firewall.json"을 Load해서 생성한다
+* Json Name:"policy_hips_fw_mgmt"의 XPATH:"policy_hips_firewall.enable"의 값을 Boolean value:"true"로 변경한다
+* Json Name:"policy_hips_fw_mgmt"의 XPATH:"policy_hips_firewall.rule.[*].sip"의 값을 String value:"[\"192.168.44.253\"]"로 변경한다
+* Json Name:"policy_hips_fw_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_firewall.json"에 저장한다
+* Json Name:"policy_hips_agent"을 File:"data/engine/policy_hips_agent.json"을 Load해서 생성한다
+* Json Name:"policy_hips_agent"을 Device:<hips_dut>의 File:"/tmp/policy_hips_agent.json"에 저장한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_agent.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_ips_mgmt.json /tmp/signature_infra.json /tmp/signature_user.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_firewall.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+
+# HIPS:<hips_dut>에 방화벽 차단 국가 테스트를 위한 기본 설정 파일을 저장하고 설정을 적용한다
+* Json Name:"policy_hips_ips_mgmt"을 File:"data/engine/policy_hips_ips_mgmt.json"을 Load해서 생성한다
+* Json Name:"policy_hips_ips_mgmt"의 XPATH:"policy_hips_ips_mgmt.enable"의 값을 Boolean value:"false"로 변경한다
+* Json Name:"policy_hips_ips_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_ips_mgmt.json"에 저장한다
+* Json Name:"signature_infra"을 File:"data/engine/signature_infra.json"을 Load해서 생성한다
+* Json Name:"signature_infra"을 Device:<hips_dut>의 File:"/tmp/signature_infra.json"에 저장한다
+* Json Name:"signature_user"을 File:"data/engine/signature_user.json"을 Load해서 생성한다
+* Json Name:"signature_user"을 Device:<hips_dut>의 File:"/tmp/signature_user.json"에 저장한다
+* Json Name:"policy_hips_fw_mgmt"을 File:"data/engine/policy_hips_firewall.json"을 Load해서 생성한다
+* Json Name:"policy_hips_fw_mgmt"의 XPATH:"policy_hips_firewall.enable"의 값을 Boolean value:"true"로 변경한다
+* Json Name:"policy_hips_fw_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_firewall.json"에 저장한다
+* Json Name:"policy_hips_agent"을 File:"data/engine/policy_hips_agent.json"을 Load해서 생성한다
+* Json Name:"policy_hips_agent"을 Device:<hips_dut>의 File:"/tmp/policy_hips_agent.json"에 저장한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_agent.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_ips_mgmt.json /tmp/signature_infra.json /tmp/signature_user.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_firewall.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+
+# HIPS:<hips_dut>에 에이전트 설정 테스트를 위한 기본 설정 파일을 저장하고 설정을 적용한다
+* Json Name:"policy_hips_ips_mgmt"을 File:"data/engine/policy_hips_ips_mgmt.json"을 Load해서 생성한다
+* Json Name:"policy_hips_ips_mgmt"의 XPATH:"policy_hips_ips_mgmt.enable"의 값을 Boolean value:"true"로 변경한다
+* Json Name:"policy_hips_ips_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_ips_mgmt.json"에 저장한다
+* Json Name:"signature_infra"을 File:"data/engine/signature_infra.json"을 Load해서 생성한다
+* Json Name:"signature_infra"을 Device:<hips_dut>의 File:"/tmp/signature_infra.json"에 저장한다
+* Json Name:"signature_user"을 File:"data/engine/signature_user.json"을 Load해서 생성한다
+* Json Name:"signature_user"을 Device:<hips_dut>의 File:"/tmp/signature_user.json"에 저장한다
+* Json Name:"policy_hips_fw_mgmt"을 File:"data/engine/policy_hips_firewall.json"을 Load해서 생성한다
+* Json Name:"policy_hips_fw_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_firewall.json"에 저장한다
+* Json Name:"policy_hips_agent"을 File:"data/engine/policy_hips_agent.json"을 Load해서 생성한다
+* Json Name:"policy_hips_agent"을 Device:<hips_dut>의 File:"/tmp/policy_hips_agent.json"에 저장한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_agent.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_ips_mgmt.json /tmp/signature_infra.json /tmp/signature_user.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_firewall.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+
+# HIPS:<hips_dut>에 사용자 정의 국가 에이전트 설정 테스트를 위한 기본 설정 파일을 저장하고 설정을 적용한다
+* Json Name:"policy_hips_ips_mgmt"을 File:"data/engine/policy_hips_ips_mgmt.json"을 Load해서 생성한다
+* Json Name:"policy_hips_ips_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_ips_mgmt.json"에 저장한다
+* Json Name:"signature_infra"을 File:"data/engine/signature_infra.json"을 Load해서 생성한다
+* Json Name:"signature_infra"을 Device:<hips_dut>의 File:"/tmp/signature_infra.json"에 저장한다
+* Json Name:"signature_user"을 File:"data/engine/signature_user.json"을 Load해서 생성한다
+* Json Name:"signature_user"을 Device:<hips_dut>의 File:"/tmp/signature_user.json"에 저장한다
+* Json Name:"policy_hips_fw_mgmt"을 File:"data/engine/policy_hips_firewall.json"을 Load해서 생성한다
+* Json Name:"policy_hips_fw_mgmt"의 XPATH:"policy_hips_firewall.enable"의 값을 Boolean value:"true"로 변경한다
+* Json Name:"policy_hips_fw_mgmt"의 XPATH:"policy_hips_firewall.block_nation.[*].nation"의 값을 String value:"KR"로 변경한다
+* Json Name:"policy_hips_fw_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_firewall.json"에 저장한다
+* Json Name:"policy_hips_agent"을 File:"data/engine/policy_hips_agent.json"을 Load해서 생성한다
+* Json Name:"policy_hips_agent"을 Device:<hips_dut>의 File:"/tmp/policy_hips_agent.json"에 저장한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_agent.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_ips_mgmt.json /tmp/signature_infra.json /tmp/signature_user.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_firewall.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+
+
+// 설정 변경
+# HIPS:<hips_dut>에서 엔진의 설정을 변경하고 적용한다 (Boolean Type, <menu>, <xpath>, <path_local>, <path_remote_1>, <path_remote_2>, <value>)
+* Json Name:<menu>을 Device:<hips_dut>의 File:<path_remote_1>을 Load해서 생성한다
+* Json Name:<menu>의 XPATH:<xpath>의 값을 Boolean value:<value>로 변경한다
+* Json Name:<menu>을 Device:<hips_dut>의 File:<path_remote_1>에 저장한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:<path_remote_2>을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* <hips_dut>에서 "cat /dev/null > /tmp/engine_event.json"를 실행한다
+
+# HIPS:<hips_dut>에서 엔진의 설정을 변경하고 적용한다 (String Type, <menu>, <xpath>, <path_local>, <path_remote_1>, <path_remote_2>, <value>)
+* Json Name:<menu>을 Device:<hips_dut>의 File:<path_remote_1>을 Load해서 생성한다
+* Json Name:<menu>의 XPATH:<xpath>의 값을 String value:<value>로 변경한다
+* Json Name:<menu>을 Device:<hips_dut>의 File:<path_remote_1>에 저장한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:<path_remote_2>을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* <hips_dut>에서 "cat /dev/null > /tmp/engine_event.json"를 실행한다
+
+# HIPS:<hips_dut>에서 엔진의 설정을 변경하고 적용했을 때 적용 실패한다 (String Type, <menu>, <xpath>, <path_local>, <path_remote_1>, <path_remote_2>, <value>)
+* Json Name:<menu>을 Device:<hips_dut>의 File:<path_remote_1>을 Load해서 생성한다
+* Json Name:<menu>의 XPATH:<xpath>의 값을 String value:<value>로 변경한다
+* Json Name:<menu>을 Device:<hips_dut>의 File:<path_remote_1>에 저장한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:<path_remote_2>을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같지 않다
+* <hips_dut>에서 "cat /dev/null > /tmp/engine_event.json"를 실행한다
+
+# HIPS:<hips_dut>에서 엔진의 방화벽 설정을 변경하고 적용한다 (Object Type, <menu>, <xpath>, <path_local>, <path_remote_1>, <path_remote_2>, <value>)
+* Json Name:<menu>을 Device:<hips_dut>의 File:<path_remote_1>을 Load해서 생성한다
+* Json Name:<menu>의 XPATH:<xpath>의 값을 Object value:<value>로 부분 업데이트한다
+* Json Name:<menu>을 Device:<hips_dut>의 File:<path_remote_1>에 저장한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:<path_remote_2>을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* Json Name:"policy_hips_agent_user_nation"을 File:"data/engine/policy_hips_agent_user_nation.json"을 Load해서 생성한다
+* Json Name:"policy_hips_agent_user_nation"을 Device:<hips_dut>의 File:"/tmp/policy_hips_agent_user_nation.json"에 저장한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_agent_user_nation.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* <hips_dut>에서 "cat /dev/null > /tmp/engine_event.json"를 실행한다
+
+# HIPS:<hips_dut>에서 엔진의 에이전트 설정을 변경하고 적용한다 (Object Type, <menu>, <xpath>, <path_local>, <path_remote_1>, <path_remote_2>, <value>)
+* Json Name:<menu>을 Device:<hips_dut>의 File:<path_remote_1>을 Load해서 생성한다
+* Json Name:<menu>의 XPATH:<xpath>의 값을 Object value:<value>로 부분 업데이트한다
+* Json Name:<menu>을 Device:<hips_dut>의 File:<path_remote_1>에 저장한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:<path_remote_2>을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* <hips_dut>에서 "cat /dev/null > /tmp/engine_event.json"를 실행한다
+
+# HIPS:<hips_dut>에서 에이전트 설정을 변경하고 확인한다 (<anse_cmd_config>, <anse_cmd_result>, <result_value>)
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 <anse_cmd_config> 명령을 수행한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 <anse_cmd_result> 명령을 수행한다
+* EXEC 실행 결과의 Json XPath:"data"의 값은 String value:<result_value>와 같다
+* <hips_dut>에서 "cat /dev/null > /tmp/engine_event.json"를 실행한다
+
+# HIPS:<hips_dut>에서 엔진의 설정을 확인한다 (Object Type, <anse_cmd>, <result_path>, <result_value>)
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 <anse_cmd> 명령을 수행한다
+* EXEC 실행 결과의 Json XPath:<result_path>의 값은 Ignore Type조건으로 value:<result_value>와 같다
+
+# HIPS:<hips_dut>에서 엔진의 설정을 확인한다 (Array Type, <anse_cmd>, <result_path>, <result_key_1>, <result_key_2>, <result_value_1>, <result_value_2>, <result_keytype_1>, <result_keytype_2>)
+* <hips_dut>에서 "cat /dev/null > /tmp/engine_event.json"를 실행한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 <anse_cmd> 명령을 수행한다
+* Json Object:"resultcheck"를 생성한다
+|key    |type   |value  |
+|<result_key_1>|<result_keytype_1>|<result_value_1>|
+|<result_key_2>|<result_keytype_2>|<result_value_2>|
+* EXEC 실행 결과의 Json XPath:<result_path>의 값은 Object value:"resultcheck"를 포함한다
+
+
+// 이벤트 로그 확인
+# HIPS:<hips_dut>에서 엔진의 이벤트 로그를 확인한다 (<log_key_1>, <log_keytype_1>, <log_value_1>, <log_key_2>, <log_keytype_2>, <log_value_2>, <log_key_3>, <log_keytype_3>, <log_value_3>)
+* <hips_dut>에서 "head -n 1 /tmp/engine_event.json"를 실행한다
+* Json Object:"resultcheck"를 생성한다
+|key    |type   |value  |
+|<log_key_1>|<log_keytype_1>|<log_value_1>|
+|<log_key_2>|<log_keytype_2>|<log_value_2>|
+|<log_key_3>|<log_keytype_3>|<log_value_3>|
+* EXEC 실행 결과의 Json XPath:"\"event data\".[*]"의 값은 Object value:"resultcheck"를 포함한다
+
+# HIPS:<hips_dut>에서 엔진의 이벤트 로그를 확인한다 (<logcheck>, <log_key_1>, <log_keytype_1>, <log_value_1>, <log_key_2>, <log_keytype_2>, <log_value_2>, <log_key_3>, <log_keytype_3>, <log_value_3>)
+* <hips_dut>에서 "head -n 1 /tmp/engine_event.json"를 실행한다
+* Json Object:"resultcheck"를 생성한다
+|key    |type   |value  |
+|<log_key_1>|<log_keytype_1>|<log_value_1>|
+|<log_key_2>|<log_keytype_2>|<log_value_2>|
+|<log_key_3>|<log_keytype_3>|<log_value_3>|
+* 확인 조건: <logcheck>, 조건이 0 이면 Json Xpath:"\"event data\".[*]"의 값이 "resultcheck"를 포함하는지 확인하고 1 이면 값이 ""임을 확인한다
+
+# HIPS:<hips_dut>에서 엔진의 방화벽 정책 설정을 확인한다 (<anse_cmd>, <result_msg>)
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 <anse_cmd> 명령을 수행한다
+* EXEC 실행 결과 메시지는 <result_msg>와 같다
+
+============================================================
+
+# HIPS:<hips_dut>에 IPS 신규 시그니처 옵션 테스트를 위한 기본 설정 파일을 저장하고 설정을 적용한다
+* Json Name:"policy_hips_ips_mgmt"을 File:"data/engine/nsew/new_sig/policy_hips_ips_mgmt_new_sig.json"을 Load해서 생성한다
+* Json Name:"policy_hips_ips_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_ips_mgmt_new_sig.json"에 저장한다
+* Json Name:"signature_infra"을 File:"data/engine/nsew/new_sig/signature_infra_new_detect.json"을 Load해서 생성한다
+* Json Name:"signature_infra"을 Device:<hips_dut>의 File:"/tmp/signature_infra_new_detect.json"에 저장한다
+* Json Name:"signature_infra"을 File:"data/engine/nsew/new_sig/signature_infra_new_detect_02.json"을 Load해서 생성한다
+* Json Name:"signature_infra"을 Device:<hips_dut>의 File:"/tmp/signature_infra_new_detect_02.json"에 저장한다
+* Json Name:"signature_infra"을 File:"data/engine/nsew/new_sig/signature_infra_new_non_detect.json"을 Load해서 생성한다
+* Json Name:"signature_infra"을 Device:<hips_dut>의 File:"/tmp/signature_infra_new_non_detect.json"에 저장한다
+* Json Name:"policy_hips_fw_mgmt"을 File:"data/engine/policy_hips_firewall.json"을 Load해서 생성한다
+* Json Name:"policy_hips_fw_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_firewall.json"에 저장한다
+* Json Name:"policy_hips_agent"을 File:"data/engine/policy_hips_agent.json"을 Load해서 생성한다
+* Json Name:"policy_hips_agent"을 Device:<hips_dut>의 File:"/tmp/policy_hips_agent.json"에 저장한다
+* <hips_dut>에서 "cd /tmp"를 실행한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_agent.json"을 적용한다
+* EXEC 실행 결과 코드는 "0"와 같다
+* <hips_dut>에서 "anse_ctl engine apply policy_hips_ips_mgmt_new_sig.json signature_infra_new_detect.json"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_firewall.json"을 적용한다
+* EXEC 실행 결과 코드는 "0"와 같다
+
+# HIPS:<hips_dut>에서 엔진의 설정을 변경하고 적용한다_신규 시그니처 옵션 (<path_remote>)
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:<path_remote>을 적용한다
+* EXEC 실행 결과 코드는 "0"와 같다
+* <hips_dut>에서 "cat /dev/null > /tmp/engine_event.json"를 실행한다
+
+# HIPS:<hips_dut>에서 엔진의 시그니처 옵션 이벤트 로그를 확인한다 (<logcheck>, <log_key_1>, <log_keytype_1>, <log_value_1>, <log_key_2>, <log_keytype_2>, <log_value_2>, <log_key_3>, <log_keytype_3>, <log_value_3>)
+* <hips_dut>에서 "tail -n 1 /tmp/engine_event.json"를 실행한다
+* 3초 동안 대기
+* Json Object:"resultcheck"를 생성한다
+|key    |type   |value  |
+|<log_key_1>|<log_keytype_1>|<log_value_1>|
+|<log_key_2>|<log_keytype_2>|<log_value_2>|
+|<log_key_3>|<log_keytype_3>|<log_value_3>|
+* 3초 동안 대기
+* 확인 조건: <logcheck>, 조건이 0 이면 Json Xpath:"\"event data\".[*]"의 값이 "resultcheck"를 포함하는지 확인하고 1 이면 값이 ""임을 확인한다
+
+# HIPS:<hips_dut>에서 엔진의 시그니처 옵션 이벤트 로그를 확인한다2 (<logcheck>, <log_key_1>, <log_keytype_1>, <log_value_1>, <log_key_2>, <log_keytype_2>, <log_value_2>, <log_key_3>, <log_keytype_3>, <log_value_3>)
+* <hips_dut>에서 "head -n 1 /tmp/engine_event.json"를 실행한다
+* 3초 동안 대기
+* Json Object:"resultcheck"를 생성한다
+|key    |type   |value  |
+|<log_key_1>|<log_keytype_1>|<log_value_1>|
+|<log_key_2>|<log_keytype_2>|<log_value_2>|
+|<log_key_3>|<log_keytype_3>|<log_value_3>|
+* 3초 동안 대기
+* 확인 조건: <logcheck>, 조건이 0 이면 Json Xpath:"\"event data\".[*]"의 값이 "resultcheck"를 포함하는지 확인하고 1 이면 값이 ""임을 확인한다
+
+# HIPS:<hips_dut>에서 시그니처 패턴 별 이벤트 로그를 확인한다 (<logcheck>, <log_key>, <log_keytype>, <log_value>)
+* <hips_dut>에서 "tail -n 1 /tmp/engine_event.json"를 실행한다
+* 3초 동안 대기
+* Json Object:"resultcheck"를 생성한다
+|key    |type   |value  |
+|<log_key>|<log_keytype>|<log_value>|
+* 3초 동안 대기
+* 확인 조건: <logcheck>, 조건이 0 이면 Json Xpath:"\"event data\".[*]"의 값이 "resultcheck"를 포함하는지 확인하고 1 이면 값이 ""임을 확인한다
+
+# HIPS:<hips_dut>에 Host Sweep 테스트를 위한 기본 설정 파일을 저장하고 설정을 적용한다
+* Json Name:"policy_hips_ips_mgmt"을 File:"data/engine/policy_hips_host_sweep.json"을 Load해서 생성한다
+* Json Name:"policy_hips_ips_mgmt"의 XPATH:"policy_hips_ips_mgmt.enable"의 값을 Boolean value:"true"로 변경한다
+* Json Name:"policy_hips_ips_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_host_sweep.json"에 저장한다
+* Json Name:"policy_hips_fw_mgmt"을 File:"data/engine/policy_hips_firewall.json"을 Load해서 생성한다
+* Json Name:"policy_hips_fw_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_firewall.json"에 저장한다
+* Json Name:"policy_hips_agent"을 File:"data/engine/policy_hips_agent.json"을 Load해서 생성한다
+* Json Name:"policy_hips_agent"을 Device:<hips_dut>의 File:"/tmp/policy_hips_agent.json"에 저장한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_agent.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_firewall.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_host_sweep.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* <hips_dut>에서 "cat /dev/null > /tmp/engine_event.json"를 실행한다
+
+# HIPS:<hips_dut>에 Port Scan 테스트를 위한 기본 설정 파일을 저장하고 설정을 적용한다
+* Json Name:"policy_hips_ips_mgmt"을 File:"data/engine/policy_hips_port_scan.json"을 Load해서 생성한다
+* Json Name:"policy_hips_ips_mgmt"의 XPATH:"policy_hips_ips_mgmt.enable"의 값을 Boolean value:"true"로 변경한다
+* Json Name:"policy_hips_ips_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_port_scan.json"에 저장한다
+* Json Name:"policy_hips_fw_mgmt"을 File:"data/engine/policy_hips_firewall.json"을 Load해서 생성한다
+* Json Name:"policy_hips_fw_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_firewall.json"에 저장한다
+* Json Name:"policy_hips_agent"을 File:"data/engine/policy_hips_agent.json"을 Load해서 생성한다
+* Json Name:"policy_hips_agent"을 Device:<hips_dut>의 File:"/tmp/policy_hips_agent.json"에 저장한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_agent.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_firewall.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_port_scan.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* <hips_dut>에서 "cat /dev/null > /tmp/engine_event.json"를 실행한다
+
+# HIPS:<hips_dut>에 FW XFF Real IPv4 차단 테스트를 위한 기본 설정 파일을 저장하고 설정을 적용한다
+* <hips_dut>에서 "cat /dev/null > /tmp/engine_event.json"를 실행한다
+* Json Name:"policy_hips_ips_mgmt"을 File:"data/engine/policy_hips_ips_mgmt.json"을 Load해서 생성한다
+* Json Name:"policy_hips_ips_mgmt"의 XPATH:"policy_hips_ips_mgmt.enable"의 값을 Boolean value:"false"로 변경한다
+* Json Name:"policy_hips_ips_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_ips_mgmt.json"에 저장한다
+* Json Name:"signature_infra"을 File:"data/engine/signature_infra.json"을 Load해서 생성한다
+* Json Name:"signature_infra"을 Device:<hips_dut>의 File:"/tmp/signature_infra.json"에 저장한다
+* Json Name:"signature_user"을 File:"data/engine/signature_user.json"을 Load해서 생성한다
+* Json Name:"signature_user"을 Device:<hips_dut>의 File:"/tmp/signature_user.json"에 저장한다
+* Json Name:"policy_hips_fw_mgmt"을 File:"data/engine/policy_hips_xff_ipv4.json"을 Load해서 생성한다
+* Json Name:"policy_hips_fw_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_xff_ipv4.json"에 저장한다
+* Json Name:"policy_hips_agent"을 File:"data/engine/policy_hips_agent_xff_ipv4.json"을 Load해서 생성한다
+* Json Name:"policy_hips_agent"을 Device:<hips_dut>의 File:"/tmp/policy_hips_agent_xff_ipv4.json"에 저장한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_agent_xff_ipv4.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_ips_mgmt.json /tmp/signature_infra.json /tmp/signature_user.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_xff_ipv4.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+
+# HIPS:<hips_dut>에서 XFF Real IP 로그를 확인한다 (<logcheck>, <log_key_1>, <log_keytype_1>, <log_value_1>, <log_key_2>, <log_keytype_2>, <log_value_2>, <log_key_3>, <log_keytype_3>, <log_value_3>)
+* <hips_dut>에서 "tail -n 1 /tmp/engine_event.json"를 실행한다
+* Json Object:"resultcheck"를 생성한다
+|key    |type   |value  |
+|<log_key_1>|<log_keytype_1>|<log_value_1>|
+|<log_key_2>|<log_keytype_2>|<log_value_2>|
+|<log_key_3>|<log_keytype_3>|<log_value_3>|
+* 확인 조건: <logcheck>, 조건이 0 이면 Json Xpath:"\"event data\".[*]"의 값이 "resultcheck"를 포함하는지 확인하고 1 이면 값이 ""임을 확인한다
+
+# <attack_device>에서 <hips_device>로 XFF Real IP 패킷을 전송한다 (<realip>)
+* <attack_device>에서 <hips_device>로 XFF Real IP가 <realip>인 패킷을 전송한다
+
+# HIPS:<hips_dut>에 방화벽 XFF Real IPv6 차단 테스트를 위한 기본 설정 파일을 저장하고 설정을 적용한다
+* <hips_dut>에서 "cat /dev/null > /tmp/engine_event.json"를 실행한다
+* <hips_dut>에서 "service ip6tables stop"를 실행한다
+* Json Name:"policy_hips_ips_mgmt"을 File:"data/engine/policy_hips_ips_mgmt.json"을 Load해서 생성한다
+* Json Name:"policy_hips_ips_mgmt"의 XPATH:"policy_hips_ips_mgmt.enable"의 값을 Boolean value:"false"로 변경한다
+* Json Name:"policy_hips_ips_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_ips_mgmt.json"에 저장한다
+* Json Name:"signature_infra"을 File:"data/engine/signature_infra.json"을 Load해서 생성한다
+* Json Name:"signature_infra"을 Device:<hips_dut>의 File:"/tmp/signature_infra.json"에 저장한다
+* Json Name:"signature_user"을 File:"data/engine/signature_user.json"을 Load해서 생성한다
+* Json Name:"signature_user"을 Device:<hips_dut>의 File:"/tmp/signature_user.json"에 저장한다
+* Json Name:"policy_hips_fw_mgmt"을 File:"data/engine/policy_hips_xff_ipv6.json"을 Load해서 생성한다
+* Json Name:"policy_hips_fw_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_xff_ipv6.json"에 저장한다
+* Json Name:"policy_hips_agent"을 File:"data/engine/policy_hips_agent.json"을 Load해서 생성한다
+* Json Name:"policy_hips_agent"을 Device:<hips_dut>의 File:"/tmp/policy_hips_agent.json"에 저장한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_agent.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_ips_mgmt.json /tmp/signature_infra.json /tmp/signature_user.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_xff_ipv6.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+
+# HIPS:<hips_dut>에 국가기반 XFF Real IPv6 차단 테스트를 위한 기본 설정 파일을 저장하고 설정을 적용한다
+* <hips_dut>에서 "cat /dev/null > /tmp/engine_event.json"를 실행한다
+* Json Name:"policy_hips_ips_mgmt"을 File:"data/engine/policy_hips_ips_mgmt.json"을 Load해서 생성한다
+* Json Name:"policy_hips_ips_mgmt"의 XPATH:"policy_hips_ips_mgmt.enable"의 값을 Boolean value:"true"로 변경한다
+* Json Name:"policy_hips_ips_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_ips_mgmt.json"에 저장한다
+* Json Name:"signature_infra"을 File:"data/engine/signature_infra.json"을 Load해서 생성한다
+* Json Name:"signature_infra"을 Device:<hips_dut>의 File:"/tmp/signature_infra.json"에 저장한다
+* Json Name:"signature_user"을 File:"data/engine/signature_user.json"을 Load해서 생성한다
+* Json Name:"signature_user"을 Device:<hips_dut>의 File:"/tmp/signature_user.json"에 저장한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_ips_mgmt.json /tmp/signature_infra.json /tmp/signature_user.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* Json Name:"policy_hips_fw_mgmt"을 File:"data/engine/policy_hips_xff_ipv6.json"을 Load해서 생성한다
+* Json Name:"policy_hips_fw_mgmt"의 XPATH:"policy_hips_firewall.rule.[*].sip"의 값을 String value:"[\"2::1\"]"로 변경한다
+* Json Name:"policy_hips_fw_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_xff_ipv6.json"에 저장한다
+* Json Name:"policy_hips_agent"을 File:"data/engine/policy_hips_agent_xff_ipv6.json"을 Load해서 생성한다
+* Json Name:"policy_hips_agent"을 Device:<hips_dut>의 File:"/tmp/policy_hips_agent_xff_ipv6.json"에 저장한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_agent_xff_ipv6.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_xff_ipv6.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+
+# HIPS:<hips_dut>에 Except IP 테스트를 위한 기본 설정 파일을 저장하고 설정을 적용한다
+* <hips_dut>에서 "cat /dev/null > /tmp/engine_event.json"를 실행한다
+* <hips_dut>에서 "service ip6tables stop"를 실행한다
+* Json Name:"policy_hips_ips_mgmt"을 File:"data/engine/policy_hips_ips_except_ip.json"을 Load해서 생성한다
+* Json Name:"policy_hips_ips_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_ips_except_ip.json"에 저장한다
+* Json Name:"signature_infra"을 File:"data/engine/signature_infra_except_ip.json"을 Load해서 생성한다
+* Json Name:"signature_infra"을 Device:<hips_dut>의 File:"/tmp/signature_infra_except_ip.json"에 저장한다
+* Json Name:"policy_hips_fw_mgmt"을 File:"data/engine/policy_hips_firewall.json"을 Load해서 생성한다
+* Json Name:"policy_hips_fw_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_firewall.json"에 저장한다
+* Json Name:"policy_hips_agent"을 File:"data/engine/policy_hips_agent.json"을 Load해서 생성한다
+* Json Name:"policy_hips_agent"을 Device:<hips_dut>의 File:"/tmp/policy_hips_agent.json"에 저장한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_firewall.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_ips_except_ip.json /tmp/signature_infra_except_ip.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_agent.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+
+# HIPS:<hips_dut>에 Except IP 테스트를 위한 에이전트 설정 파일을 저장하고 설정을 적용한다
+* <hips_dut>에서 "cat /dev/null > /tmp/engine_event.json"를 실행한다
+* Json Name:"policy_hips_agent"을 File:"data/engine/policy_hips_agent_except_ip.json"을 Load해서 생성한다
+* Json Name:"policy_hips_agent"을 Device:<hips_dut>의 File:"/tmp/policy_hips_agent_except_ip.json"에 저장한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_agent_except_ip.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+
+# HIPS:<hips_dut>에 IPS XFF Real IPv4 차단 테스트를 위한 기본 설정 파일을 저장하고 설정을 적용한다
+* <hips_dut>에서 "cat /dev/null > /tmp/engine_event.json"를 실행한다
+* <hips_dut>에서 "service ip6tables stop"를 실행한다
+* Json Name:"policy_hips_ips_mgmt"을 File:"data/engine/policy_hips_ips_xff_realip.json"을 Load해서 생성한다
+* Json Name:"policy_hips_ips_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_ips_xff_realip.json"에 저장한다
+* Json Name:"signature_infra"을 File:"data/engine/signature_infra_xff_realip.json"을 Load해서 생성한다
+* Json Name:"signature_infra"을 Device:<hips_dut>의 File:"/tmp/signature_infra_xff_realip.json"에 저장한다
+* Json Name:"policy_hips_fw_mgmt"을 File:"data/engine/policy_hips_xff_ipv4.json"을 Load해서 생성한다
+* Json Name:"policy_hips_fw_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_xff_ipv4.json"에 저장한다
+* Json Name:"policy_hips_agent"을 File:"data/engine/policy_hips_agent_xff_ipv4.json"을 Load해서 생성한다
+* Json Name:"policy_hips_agent"을 Device:<hips_dut>의 File:"/tmp/policy_hips_agent_xff_ipv4.json"에 저장한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_agent_xff_ipv4.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_ips_xff_realip.json /tmp/signature_infra_xff_realip.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+
+# HIPS:<hips_dut>에 사용자 정의 URL 차단 테스트를 위한 기본 설정 파일을 저장하고 설정을 적용한다
+* <hips_dut>에서 "cat /dev/null > /tmp/engine_event.json"를 실행한다
+* Json Name:"policy_hips_ips_mgmt"을 File:"data/engine/policy_hips_user_url.json"을 Load해서 생성한다
+* Json Name:"policy_hips_ips_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_user_url.json"에 저장한다
+* Json Name:"signature_infra"을 File:"data/engine/signature_infra.json"을 Load해서 생성한다
+* Json Name:"signature_infra"을 Device:<hips_dut>의 File:"/tmp/signature_infra.json"에 저장한다
+* Json Name:"policy_hips_fw_mgmt"을 File:"data/engine/policy_hips_firewall.json"을 Load해서 생성한다
+* Json Name:"policy_hips_fw_mgmt"을 Device:<hips_dut>의 File:"/tmp/policy_hips_firewall.json"에 저장한다
+* Json Name:"policy_hips_agent"을 File:"data/engine/policy_hips_agent.json"을 Load해서 생성한다
+* Json Name:"policy_hips_agent"을 Device:<hips_dut>의 File:"/tmp/policy_hips_agent.json"에 저장한다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_agent.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_user_url.json /tmp/signature_infra.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+* HIPS:<hips_dut>에서 anse_ctl Tool을 이용하여 엔진 설정 파일:"/tmp/policy_hips_firewall.json"을 적용한다
+* EXEC 실행 결과의 Json XPath:"rcode"의 값은 Number value:"0"와 같다
+
+# <hips_dut>에 시그니처 테스트 환경 Initialize
+* <hips_dut>에서 "cd /tmp"를 실행한다
+* <hips_dut>에서 "tar xvfz nsel_testsuite_package.tar.gz"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+* <hips_dut>에서 "cd nsel_testsuite"를 실행한다
+* EXEC 실행 결과 코드는 "0", 결과 메시지는 ""와 같다
+* <hips_dut>에서 "./install.sh"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+* <hips_dut>에서 "cd x86_64/amazon2/suarez/"를 실행한다
+* EXEC 실행 결과 코드는 "0", 결과 메시지는 ""와 같다
+* <hips_dut>에서 "./install.sh -u http://192.168.190.1 -s XXXXXXXX-XXXXXXXX"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+* <hips_dut>에서 "./qa_run.sh"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+* HIPS:<hips_dut>에서 환경변수 업데이트한다
+* HIPS:<hips_dut>에서 anse_mon을 pcap 모드로 실행 후 구동상태 확인한다
+* HIPS:<hips_dut>에서 엔진 드라이버를 초기화 한다
+
+# <hips_dut>에 시그니처 로드
+* <hips_dut>에서 "cd /tmp"를 실행한다
+* <hips_dut>에서 "./make_hips_policy_2.sh hips_signature_meta.json hips_signature_policy.json"를 실행한다
+* <hips_dut>에서 "anse_ctl engine apply hips_signature_policy.json hips_signature_list.json"를 실행한다
+* 60초 동안 대기
+
+# <hips_dut>에 시그니처 파일 압축 해제
+* <hips_dut>에서 "cd /tmp"를 실행한다
+* <hips_dut>에서 "unzip -o *hips_signature.zip"를 실행한다
+* <hips_dut>에서 "unzip -o hips_signature.zip"를 실행한다
+
+# <hips_dut> 시그니처 유효성 검사 결과 확인
+* <hips_dut>에서 "anse_ctl core show-sig-count"를 실행한다
+* EXEC 실행 결과 메시지는 "\"fail\": 0"를 포함한다
+* EXEC 실행 결과 메시지는 "\"success\": 0"를 포함하지 않는다
+* <hips_dut>에서 "anse_ctl core show-signature-debug error"를 실행한다
+
+# <hips_dut> 엔진 버전 확인
+* <hips_dut>에서 "anse_ctl engine status"를 실행한다
+
+# <hips_dut> 시그니처 버전 확인
+* <hips_dut>에서 "anse_ctl core show-sig-version"를 실행한다
+
+# <hips_dut>에 쉘 스크립트 구성
+* <hips_dut>에서 "cd /tmp"를 실행한다
+* <hips_dut>에서 "unzip -o hyunseok.zip"를 실행한다
+* <hips_dut>에서 "chmod 755 filter.sh check_required_items.sh check_deleted_items.sh"를 실행한다
+
+# <hips_dut>에서 SID 유효성 테스트 수행
+* <hips_dut>에서 "./filter.sh"를 실행한다
+* <hips_dut>에서 "sed -i -e '/add/d' -e '/modify/d' required_items.txt"를 실행한다
+* <hips_dut>에서 "sed -i '/delete/d' deleted_items.txt"를 실행한다
+* <hips_dut>에서 "./check_required_items.sh"를 실행한다
+* <hips_dut>에서 "./check_deleted_items.sh"를 실행한다
+
+# <hips_dut>에서 신규 추가/수정된 SID를 확인한다
+* <hips_dut>에서 "cat required_result.txt"를 실행한다
+* EXEC 실행 결과 메시지는 "not"를 포함하지 않는다
+
+# <hips_dut>에서 신규 삭제된 SID를 확인한다
+* <hips_dut>에서 "cat deleted_result.txt"를 실행한다
+* EXEC 실행 결과 메시지는 "not"를 포함하지 않는다
+
+# <hips_dut>에서 기본 시그니처 추천 목록을 확인한다
+* <hips_dut>에서 "./recomm_check.sh"를 실행한다
+* <hips_dut>에서 "cat /tmp/recom/result.txt"를 실행한다
+* EXEC 실행 결과 메시지는 "is on"를 포함한다
+* EXEC 실행 결과 메시지는 "isn't"를 포함하지 않는다
+
+=======================pcap 모드 패킷 전송========================================
+# <hips_dut>에서 <pcap> 패킷을 전송한다.
+* <hips_dut>에서 "anse_ctl pcap add_file <pcap>"를 실행한다
+* <hips_dut>에서 "anse_ctl pcap add_dev <pcap>"를 실행한다

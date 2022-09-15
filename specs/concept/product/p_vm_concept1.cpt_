@@ -1,0 +1,247 @@
+# <devicename>에서 설치파일 uninstall
+* <devicename>에서 "bash ~/package/chipsl/uninstall.sh"를 실행한다
+EXEC 실행 결과 메시지는 "Ok"를 포함 한다
+* 3초 동안 대기
+* <devicename>에서 "rm -rf /var/policy/"를 실행한다
+* <devicename>에서 "rm -rf ~/package/"를 실행한다
+
+
+# <devicename>에서 설치파일 다운로드 및 install
+* <devicename>에서 "mkdir package"를 실행한다
+* <devicename>에서 "cd package"를 실행한다
+* <devicename>에서 "curl -O http://192.168.57.1/download/package.zip"를 실행한다
+* <devicename>에서 "curl -O http://192.168.57.1/download/hipsconfig.zip"를 실행한다
+* <devicename>에서 "unzip -o package.zip"를 실행한다
+* <devicename>에서 "unzip -o hipsconfig.zip"를 실행한다
+* <devicename>에서 "bash ./install-chipsl.sh -s"를 실행한다
+* EXEC 실행 결과 메시지는 "Ok"를 포함 한다
+* 3초 동안 대기
+* <devicename>에서 "bash ./install.sh"를 실행한다
+* EXEC 실행 결과 메시지는 "Ok"를 포함 한다
+* 3초 동안 대기
+* <devicename>에서 "mkdir /var/policy"를 실행한다
+* <devicename>에서 "mv *.json /var/policy/"를 실행한다
+* <devicename>에서 "mv *.enc /usr/local/ahnlab/chipsl/db/"를 실행한다
+
+# <devicename>에서 alias를 설정한다
+* <devicename>에서 "alias hipstest='/usr/local/ahnlab/chipsl/exec.sh /usr/local/ahnlab/chipsl/tools/hipstest'"를 실행한다
+* <devicename>에서 "alias encrypt='/usr/local/ahnlab/chipsl/exec.sh /usr/local/ahnlab/chipsl/tools/encrypt'"를 실행한다
+* <devicename>에서 "alias logviewer='/usr/local/ahnlab/chipsl/tools/logviewer'"를 실행한다
+* <devicename>에서 "alias sqlite3='/usr/local/ahnlab/chipsl/tools/sqlite3'"를 실행한다
+* <devicename>에서 "alias show_signature='/usr/local/ahnlab/chipsl/exec.sh /usr/local/ahnlab/chipsl/tools/show_signature /var/policy/policy_mgmt.json.enc /usr/local/ahnlab/chipsl/db/hips_signature.zip.enc'"를 실행한다
+* <devicename>에서 "alias"를 실행한다
+* EXEC 실행 결과 메시지는 "alias encrypt"를 포함 한다
+* EXEC 실행 결과 메시지는 "alias hipstest"를 포함 한다
+* EXEC 실행 결과 메시지는 "alias logviewer"를 포함 한다
+* EXEC 실행 결과 메시지는 "alias sqlite3"를 포함 한다
+
+# <devicename>에서 제품이 설치된 버전을 확인한다
+* <devicename>에서 "hipstest get status"를 실행한다
+* EXEC 실행 결과 메시지는 "1.0.0."를 포함 한다
+로그를 즉시 남기도록 아래 옵션수행
+* <devicename>에서 "hipstest set eppserver connection 0"를 실행한다
+결과 값에 header.result: 0 으로 출력
+* EXEC 실행 결과를 Json XPath:"header.result"으로 검색시 Number value:"0"와 같다
+
+# <devicename>에서 제품이 설치된 디렉토리를 확인한다
+* <devicename>에서 "ls -al /usr/local/ahnlab/chipsl/"를 실행한다
+* EXEC 실행 결과 메시지는 "artifacts.txt"를 포함 한다
+* EXEC 실행 결과 메시지는 "bldinfo.ini"를 포함 한다
+EXEC 실행 결과 메시지는 "chipsl.pid"를 포함 한다
+* EXEC 실행 결과 메시지는 "exec.sh"를 포함 한다
+* EXEC 실행 결과 메시지는 "uninstall.sh"를 포함 한다
+* EXEC 실행 결과 메시지는 "bin"를 포함 한다
+* EXEC 실행 결과 메시지는 "cfg"를 포함 한다
+* EXEC 실행 결과 메시지는 "db"를 포함 한다
+* EXEC 실행 결과 메시지는 "lib"를 포함 한다
+* EXEC 실행 결과 메시지는 "log"를 포함 한다
+* EXEC 실행 결과 메시지는 "suarez"를 포함 한다
+* EXEC 실행 결과 메시지는 "tools"를 포함 한다
+
+# <devicename>에서 제품 툴이 설치된 디렉토리를 확인한다
+* <devicename>에서 "ls -al /usr/local/ahnlab/chipsl/tools"를 실행한다
+* EXEC 실행 결과 메시지는 "encrypt"를 포함 한다
+* EXEC 실행 결과 메시지는 "hipstest"를 포함 한다
+* EXEC 실행 결과 메시지는 "logviewer"를 포함 한다
+* EXEC 실행 결과 메시지는 "sqlite3"를 포함 한다
+
+# <devicename>에서 데몬 구동상태를 확인한다
+* <devicename>에서 "ps aux | grep hips"를 실행한다
+* EXEC 실행 결과 메시지는 "bash /usr/local/ahnlab/chipsl/bin/chipsl.sh start"를 포함 한다
+* EXEC 실행 결과 메시지는 "/usr/local/ahnlab/chipsl/lib/ld-linux-x86-64.so.2"를 포함 한다
+
+# <devicename>에서 기본 정책을 백업 한다
+* <devicename>에서 "mkdir /var/policy/org"를 실행한다
+* <devicename>에서 "cp /var/policy/* /var/policy/org/"를 실행한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> 사용여부를 <booleanvalue1>로 한다 xpath는 <xpathval1> 이다
+
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 값을 Boolean value:<booleanvalue1>로 변경한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> boolean type 설정 <objname1>을 <booleanvalue1>로 한다 xpath는 <xpathval1> 이다
+
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 값을 Boolean value:<booleanvalue1>로 변경한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> string type 설정 <objname1>을 <stringvalue1>로 한다 xpath는 <xpathval1> 이다
+
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 값을 String value:<stringvalue1>로 변경한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> number type 설정 <objname1>을 <numbervalue1>로 한다 xpath는 <xpathval1> 이다
+
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 값을 Number value:<numbervalue1>로 변경한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> array type 설정 <objname1>을 <arrayvalue1>로 한다 xpath는 <xpathval1> 이다
+
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 값을 Array value:<arrayvalue1>로 변경한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> 정책 <rulename>:<rulenumber>의 boolean type 설정 <objname1>을 <booleanvalue1>로 변경을 한다 xpath는 <xpathval1> 이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 값을 Boolean value:<booleanvalue1>로 변경한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> 정책 <rulename>:<rulenumber>의 array type 설정 <objname1>을 <arrayvalue1>로 변경을 한다 xpath는 <xpathval1> 이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 값을 Array value:<arrayvalue1>로 변경한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> 정책 <rulename>:<rulenumber>의 string type 설정 <objname1>을 <stringvalue1>로 변경을 한다 xpath는 <xpathval1> 이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 값을 String value:<stringvalue1>로 변경한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> 정책 <rulename>:<rulenumber>의 number type 설정 <objname1>을 <numbervalue1>로 변경을 한다 xpath는 <xpathval1> 이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 값을 Number value:<numbervalue1>로 변경한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> 정책 <rulename>:<objname1>의 값이 number type <numbervalue1> 이면 string type 설정 <objname2>을 <stringvalue1>로 변경을 한다 xpath는 <xpathval1> 이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 object 중 <objname1>의 값이 Number value:<numbervalue1>와 일치하면 <objname2> 값을 String value:<stringvalue1>로 변경한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> 정책 <rulename>:<objname1>의 값이 number type <numbervalue1> 이면 boolean type 설정 <objname2>을 <booleanvalue1>로 변경을 한다 xpath는 <xpathval1> 이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 object 중 <objname1>의 값이 Number value:<numbervalue1>와 일치하면 <objname2> 값을 Boolean value:<booleanvalue1>로 변경한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> 정책 <rulename>:<objname1>의 값이 number type <numbervalue1> 이면 number type 설정 <objname2>을 <numbervalue2>로 변경을 한다 xpath는 <xpathval1> 이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 object 중 <objname1>의 값이 Number value:<numbervalue1>와 일치하면 <objname2> 값을 Number value:<numbervalue2>로 변경한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> 정책 <rulename>:<objname1>의 값이 string type <stringvalue1> 이면 string type 설정 <objname2>을 <stringvalue2>로 변경을 한다 xpath는 <xpathval1> 이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 object 중 <objname1>의 값이 String value:<stringvalue1>와 일치하면 <objname2> 값을 String value:<stringvalue2>로 변경한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> 정책 <rulename>:<objname1>의 값이 string type <stringvalue1> 이면 boolean type 설정 <objname2>을 <booleanvalue1>로 변경을 한다 xpath는 <xpathval1> 이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 object 중 <objname1>의 값이 String value:<stringvalue1>와 일치하면 <objname2> 값을 Boolean value:<booleanvalue1>로 변경한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> 정책 <rulename>:<objname1>의 값이 string type <stringvalue1> 이면 number type 설정 <objname2>을 <numbervalue1>로 변경을 한다 xpath는 <xpathval1> 이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 object 중 <objname1>의 값이 String value:<stringvalue1>와 일치하면 <objname2> 값을 Number value:<numbervalue1>로 변경한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> 정책 <rulename>:<objname1>의 값이 string type <stringvalue1> 이면 array type 설정 <objname2>을 <arrayvalue1>로 변경을 한다 xpath는 <xpathval1> 이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 object 중 <objname1>의 값이 String value:<stringvalue1>와 일치하면 <objname2> 값을 Array value:<arrayvalue1>로 변경한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 정책 암호화 CLI:<encryptcli>를 한다
+암호화 수행
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/tools"를 실행한다
+* <devicename>에서 <encryptcli>를 실행한다
+
+# <devicename>에서 <policyname> 정책 적용 CLI:<hipstestcli>을 한다
+정책 적용 수행
+* <devicename>에서 <hipstestcli>를 실행한다
+결과 값에 header.result: 0 으로 출력
+* EXEC 실행 결과를 Json XPath:"header.result"으로 검색시 Number value:"0"와 같다
+
+# <devicename>에서 CLI:<hipstestcli> 적용결과를 확인한다
+* <devicename>에서 <hipstestcli>를 실행한다
+
+# <devicename>에서 hping으로 탐지 트래픽을 발생 한다 조건은 sip:<sip>, dip:<dip>, sport:<sport>, dport:<dport>, protocol:<protocol> 이다
+탐지 트래픽 발생
+* <devicename>에서 protocol:<protocol> sip:<sip> dip:<dip> sport:<sport> dport:<dport> hping 트래픽 발생
+EXEC 실행 결과 코드는 "0"와 같다
+
+# <devicename>에서 FPG로 탐지 트래픽을 발생 한다 조건은 sip:<sip>, dip:<dip>, sid:<sidvalue>이다
+* <devicename>에서 "cd smurf/tools/fpg"를 실행한다
+* <devicename>에서 sip:<sip>, dip:<dip> FPG 트래픽 발생
+EXEC 실행 결과 코드는 "0"와 같다
+
+# <devicename>에서 <hipslogtype> 로그 처리결과를 확인 한다 예상결과가 <expect_result>이고 로그결과는 <log_result>이다, 추가판단조건 sip:<traffic_sip>, dip:<traffic_dip>, rule_name:<rule_name1>
+로그파일 확인
+* <devicename>에서 "ls -al /usr/local/ahnlab/chipsl/log/"를 실행한다
+* 조회 결과는 금일날짜를 포함 한다
+로그내용 확인 - 금일 날짜 로그db 내용 확인
+* <devicename>에서 sqlite를 사용하여 금일 <hipslogtype> 로그를 확인한다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block", 조건2:"logcheck"에 부합할 때 EXEC 실행 결과 메시지는 <traffic_sip>를 포함한다, 아니면 포함 하지 않는다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block", 조건2:"logcheck"에 부합할 때 EXEC 실행 결과 메시지는 <traffic_dip>를 포함한다, 아니면 포함 하지 않는다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block", 조건2:"logcheck"에 부합할 때 EXEC 실행 결과 메시지는 <rule_name1>를 포함한다, 아니면 포함 하지 않는다
+
+# <devicename>에서 <hipslogtype> 로그 처리결과를 확인 한다 예상결과가 <expect_result>이고 로그결과는 <log_result>이다, 추가판단조건 sip:<traffic_sip>, dip:<traffic_dip>, nation_code:<nation_code>
+로그파일 확인
+* <devicename>에서 "ls -al /usr/local/ahnlab/chipsl/log/"를 실행한다
+* 조회 결과는 금일날짜를 포함 한다
+로그내용 확인 - 금일 날짜 로그db 내용 확인
+* <devicename>에서 sqlite를 사용하여 금일 <hipslogtype> 로그를 확인한다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block", 조건2:"logcheck"에 부합할 때 EXEC 실행 결과 메시지는 <traffic_sip>를 포함한다, 아니면 포함 하지 않는다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block", 조건2:"logcheck"에 부합할 때 EXEC 실행 결과 메시지는 <traffic_dip>를 포함한다, 아니면 포함 하지 않는다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block", 조건2:"logcheck"에 부합할 때 EXEC 실행 결과 메시지는 <nation_code>를 포함한다, 아니면 포함 하지 않는다
+
+# <devicename>에서 <hipslogtype> 로그 처리결과를 확인 한다 예상결과가 <expect_result>이고 로그결과는 <log_result>이다, 추가판단조건 sip:<traffic_sip>, dip:<traffic_dip>, attackid:<attackid>, action:<action>, blockaction:<blockaction>
+로그파일 확인
+* <devicename>에서 "ls -al /usr/local/ahnlab/chipsl/log/"를 실행한다
+* 조회 결과는 금일날짜를 포함 한다
+로그내용 확인 - 금일 날짜 로그db 내용 확인
+* <devicename>에서 sqlite를 사용하여 금일 <hipslogtype> 로그를 확인한다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block" or "detect" 조건2:"logcheck"에 부합할 때 EXEC 실행 결과 메시지는 <traffic_sip>를 포함한다, 아니면 포함 하지 않는다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block" or "detect" 조건2:"logcheck"에 부합할 때 EXEC 실행 결과 메시지는 <traffic_dip>를 포함한다, 아니면 포함 하지 않는다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block" or "detect" 조건2:"logcheck"에 부합할 때 EXEC 실행 결과 메시지는 <attackid>를 포함한다, 아니면 포함 하지 않는다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block" or "detect" 조건2:"logcheck"에 부합할 때 EXEC 실행 결과 메시지는 <action>를 포함한다, 아니면 포함 하지 않는다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block" or "detect" 조건2:"logcheck"에 부합할 때 EXEC 실행 결과 메시지는 <blockaction>를 포함한다, 아니면 포함 하지 않는다
+
+# <devicename>에서 방화벽 정책 초기화를 한다
+정책초기화
+* <devicename>에서 "cp /var/policy/org/policy_fw.json /var/policy/policy_fw.json"를 실행한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/tools"를 실행한다
+* <devicename>에서 "encrypt enc /var/policy/policy_fw.json"를 실행한다
+* <devicename>에서 "hipstest set policy fw /var/policy/policy_fw.json.enc"를 실행한다
+결과 값에 header.result: 0 으로 출력
+* EXEC 실행 결과를 Json XPath:"header.result"으로 검색시 Number value:"0"와 같다
+
+# <devicename>에서 IPS 정책 초기화를 한다
+정책초기화
+* <devicename>에서 "cp /var/policy/org/policy_mgmt.json /var/policy/policy_mgmt.json"를 실행한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/tools"를 실행한다
+* <devicename>에서 "encrypt enc /var/policy/policy_mgmt.json"를 실행한다
+* <devicename>에서 "hipstest set policy mgmt /var/policy/policy_mgmt.json.enc"를 실행한다
+결과 값에 header.result: 0 으로 출력
+* EXEC 실행 결과를 Json XPath:"header.result"으로 검색시 Number value:"0"와 같다
+
+# <devicename>에서 AGENT 정책 초기화를 한다
+정책초기화
+* <devicename>에서 "cp /var/policy/org/policy_agent.json /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/tools"를 실행한다
+* <devicename>에서 "encrypt enc /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "hipstest set policy agent /var/policy/policy_agent.json.enc"를 실행한다
+결과 값에 header.result: 0 으로 출력
+* EXEC 실행 결과를 Json XPath:"header.result"으로 검색시 Number value:"0"와 같다
+
+# <devicename>에서 <hipslogtype> 로그 초기화를 한다
+* <devicename>에서 sqlite를 사용하여 금일 <hipslogtype> 로그를 초기화 한다

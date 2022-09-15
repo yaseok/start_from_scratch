@@ -1,0 +1,1226 @@
+# <devicename>에 패치셋 업로드
+* 로컬 파일:"PATCH/patch_0164_setup.zip"을 Device:<devicename>의 경로:"/tmp/engine_patchset.zip"로 업로드 한다
+* 로컬 파일:"PATCH/patchset.zip"을 Device:<devicename>의 경로:"/tmp/product_patchset.zip"로 업로드 한다
+* 로컬 파일:"PATCH/patchset4window.zip"을 Device:<devicename>의 경로:"/tmp/product4window_patchset.zip"로 업로드 한다
+* <devicename>에서 "cd /tmp"를 실행한다
+* <devicename>에서 "unzip -o engine_patchset.zip"를 실행한다
+* <devicename>에서 "cd patch/"를 실행한다
+* <devicename>에서 "rm -rf /usr/share/nginx/html/patch/0164/"를 실행한다
+* <devicename>에서 "mv 0164/ /usr/share/nginx/html/patch/"를 실행한다
+* <devicename>에서 "cd /tmp"를 실행한다
+* <devicename>에서 "unzip -o product_patchset.zip"를 실행한다
+* <devicename>에서 "unzip -o patch_62_setup.zip"를 실행한다
+* <devicename>에서 "cd patch/"를 실행한다
+* <devicename>에서 "rm -rf /usr/share/nginx/html/patch/62/"를 실행한다
+* <devicename>에서 "mv 62/ /usr/share/nginx/html/patch/"를 실행한다
+* <devicename>에서 "cd /tmp"를 실행한다
+* <devicename>에서 "unzip -o product4window_patchset.zip"를 실행한다
+* <devicename>에서 "unzip -o patch_set.zip"를 실행한다
+* <devicename>에서 "cd patch/"를 실행한다
+* <devicename>에서 "rm -rf /usr/share/nginx/html/patch/61/"를 실행한다
+* <devicename>에서 "mv 61/ /usr/share/nginx/html/patch/"를 실행한다
+* <devicename>에서 "cd /tmp"를 실행한다
+* <devicename>에서 "rm -rf patch*"를 실행한다
+* <devicename>에서 "rm -rf *_patchset.zip"를 실행한다
+
+# <devicename>에 롤백패치셋 업로드
+* 로컬 파일:"PATCH/patch_0164_setup_R.zip"을 Device:<devicename>의 경로:"/tmp/engine_patchset.zip"로 업로드 한다
+* 로컬 파일:"PATCH/patchset_R.zip"을 Device:<devicename>의 경로:"/tmp/product_patchset.zip"로 업로드 한다
+\* 로컬 파일:"PATCH/patchset4window_R.zip"을 Device:<devicename>의 경로:"/tmp/product4window_patchset.zip"로 업로드 한다
+* <devicename>에서 "cd /tmp"를 실행한다
+* <devicename>에서 "unzip -o engine_patchset.zip"를 실행한다
+* <devicename>에서 "cd patch/"를 실행한다
+* <devicename>에서 "rm -rf /usr/share/nginx/html/patch/0164/"를 실행한다
+* <devicename>에서 "mv 0164/ /usr/share/nginx/html/patch/"를 실행한다
+* <devicename>에서 "cd /tmp"를 실행한다
+* <devicename>에서 "unzip -o product_patchset.zip"를 실행한다
+* <devicename>에서 "unzip -o patch_62_setup.zip"를 실행한다
+* <devicename>에서 "cd patch/"를 실행한다
+* <devicename>에서 "rm -rf /usr/share/nginx/html/patch/62/"를 실행한다
+* <devicename>에서 "mv 62/ /usr/share/nginx/html/patch/"를 실행한다
+\* <devicename>에서 "cd /tmp"를 실행한다
+\* <devicename>에서 "unzip -o product4window_patchset.zip"를 실행한다
+\* <devicename>에서 "unzip -o patch_set.zip"를 실행한다
+\* <devicename>에서 "cd patch/"를 실행한다
+\* <devicename>에서 "rm -rf /usr/share/nginx/html/patch/61/"를 실행한다
+\* <devicename>에서 "mv 61/ /usr/share/nginx/html/patch/"를 실행한다
+* <devicename>에서 "cd /tmp"를 실행한다
+* <devicename>에서 "rm -rf patch*"를 실행한다
+* <devicename>에서 "rm -rf *_patchset.zip"를 실행한다
+
+# <devicename>에 업로드된 엔진 패치셋 버전 확인
+* <devicename>에서 "cat /usr/share/nginx/html/patch/0164/ahn.unix |head -n 3"를 실행한다
+
+# <devicename>에 업로드된 제품 패치셋 버전 확인
+\CHL 버전체크
+* <devicename>에서 "cat /usr/share/nginx/html/patch/62/ahn.unix |head -n 3"를 실행한다
+\CHW 버전체크
+* <devicename>에서 "cat /usr/share/nginx/html/patch/61/ahn.ui |head -n 3"를 실행한다
+
+# <devicename>에서 설치파일 다운로드 및 install
+\* 로컬 파일:"../HIPS4L/installer.zip"을 Device:<devicename>의 경로:"/tmp/installer.zip"로 업로드 한다
+* 로컬 파일:"../HIPS4L/installer.zip"을 Device:<devicename>의 경로:"/tmp/installer.zip"로 SCP 복사 한다
+\* 로컬 파일:"../HIPS4L/tools.zip"을 Device:<devicename>의 경로:"/tmp/tools.zip"로 업로드 한다
+* 로컬 파일:"../HIPS4L/tools.zip"을 Device:<devicename>의 경로:"/tmp/tools.zip"로 SCP 복사 한다
+* <devicename>에서 "cd /tmp"를 실행한다
+* <devicename>에서 "curl -O http://192.168.60.45/download/hipsconfig.zip"를 실행한다
+* <devicename>에서 "unzip -o installer.zip"를 실행한다
+* <devicename>에서 "unzip -o tools.zip"를 실행한다
+* <devicename>에서 "unzip -o hipsconfig.zip"를 실행한다
+* <devicename>에서 "script1=$(ls |grep install-chips |head -n 1)"를 실행한다
+* <devicename>에서 "script2=install.sh"를 실행한다
+* <devicename>에서 "chmod 777 $script1"를 실행한다
+* <devicename>에서 "chmod 777 $script2"를 실행한다
+* <devicename>에서 "bash ./$script1 -s"를 실행한다
+* EXEC 실행 결과 메시지는 "Ok"를 포함한다
+* 3초 동안 대기
+* <devicename>에서 "bash ./$script2"를 실행한다
+* EXEC 실행 결과 메시지는 "Ok"를 포함한다
+* 3초 동안 대기
+* <devicename>에서 "mkdir /var/policy"를 실행한다
+* <devicename>에서 "mv *.json /var/policy/"를 실행한다
+* <devicename>에서 "mv *.enc /usr/local/ahnlab/chipsl/db/"를 실행한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/tools"를 실행한다
+* <devicename>에서 "curl -O http://192.168.60.45/download/set_update_server.zip"를 실행한다
+* <devicename>에서 "unzip -o set_update_server.zip"를 실행한다
+* <devicename>에서 "chmod 755 set_update_server.sh"를 실행한다
+* <devicename>에서 "./set_update_server.sh 192.168.190.1"를 실행한다
+* <devicename>에서 "./hipstest set policy agent /usr/local/ahnlab/chipsl/tools/01_agent_default_ip.json.enc"를 실행한다
+* <devicename>에서 "./hipstest set cmd update"를 실행한다
+* 60초 동안 대기
+
+# <devicename>에서 설치파일 uninstall
+* <devicename>에서 "bash ~/package/chipsl/uninstall.sh"를 실행한다
+EXEC 실행 결과 메시지는 "Ok"를 포함한다
+* 3초 동안 대기
+* <devicename>에서 "rm -rf /var/policy/"를 실행한다
+
+# <devicename>에서 설치파일 다운로드 및 install(Local)
+* <devicename>에서 "cd /tmp"를 실행한다
+* <devicename>에서 "curl -O http://192.168.108.253/download/installer.zip"를 실행한다
+* <devicename>에서 "curl -O http://192.168.108.253/download/tools.zip"를 실행한다
+* <devicename>에서 "curl -O http://192.168.60.45/download/hipsconfig.zip"를 실행한다
+* <devicename>에서 "unzip -o installer.zip"를 실행한다
+* <devicename>에서 "unzip -o tools.zip"를 실행한다
+* <devicename>에서 "unzip -o hipsconfig.zip"를 실행한다
+* <devicename>에서 "script1=$(ls |grep install-chips |head -n 1)"를 실행한다
+* <devicename>에서 "script2=install.sh"를 실행한다
+* <devicename>에서 "chmod 777 $script1"를 실행한다
+* <devicename>에서 "chmod 777 $script2"를 실행한다
+* <devicename>에서 "bash ./$script1 -s"를 실행한다
+* EXEC 실행 결과 메시지는 "Ok"를 포함한다
+* 3초 동안 대기
+* <devicename>에서 "bash ./$script2"를 실행한다
+* EXEC 실행 결과 메시지는 "Ok"를 포함한다
+* 3초 동안 대기
+* <devicename>에서 "mkdir /var/policy"를 실행한다
+* <devicename>에서 "mv *.json /var/policy/"를 실행한다
+* <devicename>에서 "mv *.enc /usr/local/ahnlab/chipsl/db/"를 실행한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/tools"를 실행한다
+* <devicename>에서 "curl -O http://192.168.60.45/download/set_update_server.zip"를 실행한다
+* <devicename>에서 "unzip -o set_update_server.zip"를 실행한다
+* <devicename>에서 "chmod 755 set_update_server.sh"를 실행한다
+* <devicename>에서 "./set_update_server.sh 192.168.190.1"를 실행한다
+* <devicename>에서 "./hipstest set policy agent /usr/local/ahnlab/chipsl/tools/01_agent_default_ip.json.enc"를 실행한다
+* <devicename>에서 "./hipstest set cmd update"를 실행한다
+* 60초 동안 대기
+
+# <devicename>에서 업그레이드 패치셋 업데이트
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/tools"를 실행한다
+* <devicename>에서 "curl -O http://192.168.60.45/download/set_update_server.zip"를 실행한다
+* <devicename>에서 "unzip -o set_update_server.zip"를 실행한다
+* <devicename>에서 "chmod 755 set_update_server.sh"를 실행한다
+* <devicename>에서 "./set_update_server.sh 192.168.190.1"를 실행한다
+* <devicename>에서 "./hipstest set policy agent /usr/local/ahnlab/chipsl/tools/01_agent_default_ip.json.enc"를 실행한다
+* <devicename>에서 "./hipstest set cmd update"를 실행한다
+* 60초 동안 대기
+
+# <devicename>에서 롤백 패치셋 업데이트
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/tools"를 실행한다
+* <devicename>에서 "curl -O http://192.168.60.45/download/set_update_server.zip"를 실행한다
+* <devicename>에서 "unzip -o set_update_server.zip"를 실행한다
+* <devicename>에서 "chmod 755 set_update_server.sh"를 실행한다
+* <devicename>에서 "./set_update_server.sh 192.168.190.9"를 실행한다
+* <devicename>에서 "./hipstest set policy agent /usr/local/ahnlab/chipsl/tools/01_agent_default_ip.json.enc"를 실행한다
+* <devicename>에서 "./hipstest set cmd update"를 실행한다
+* 60초 동안 대기
+
+# <devicename>에서 제품버전 확인 - <versionname>
+* <devicename>에서 "cat /usr/local/ahnlab/chipsl/bldinfo.ini"를 실행한다
+* EXEC 실행 결과 메시지는 <versionname>를 포함한다
+
+# <devicename>에서 엔진버전 확인 - <versionname>
+* <devicename>에서 "cat /usr/local/ahnlab/chipsl/anse/bldinfo.ini"를 실행한다
+* EXEC 실행 결과 메시지는 <versionname>를 포함한다
+
+# <devicename>에서 alias를 설정한다
+* <devicename>에서 "alias hipstest='/usr/local/ahnlab/chipsl/exec.sh /usr/local/ahnlab/chipsl/tools/hipstest'"를 실행한다
+* <devicename>에서 "alias encrypt='/usr/local/ahnlab/chipsl/exec.sh /usr/local/ahnlab/chipsl/tools/encrypt'"를 실행한다
+* <devicename>에서 "alias logviewer='/usr/local/ahnlab/chipsl/exec.sh /usr/local/ahnlab/chipsl/tools/logviewer'"를 실행한다
+* <devicename>에서 "alias sqlite3='/usr/local/ahnlab/chipsl/exec.sh /usr/local/ahnlab/chipsl/tools/sqlite3'"를 실행한다
+* <devicename>에서 "alias show_signature='/usr/local/ahnlab/chipsl/exec.sh /usr/local/ahnlab/chipsl/tools/show_signature /var/policy/policy_mgmt.json.enc /usr/local/ahnlab/chipsl/db/hips_signature.zip.enc'"를 실행한다
+* <devicename>에서 "alias"를 실행한다
+* EXEC 실행 결과 메시지는 "alias encrypt"를 포함한다
+* EXEC 실행 결과 메시지는 "alias hipstest"를 포함한다
+* EXEC 실행 결과 메시지는 "alias logviewer"를 포함한다
+* EXEC 실행 결과 메시지는 "alias sqlite3"를 포함한다
+
+# <devicename>에서 제품이 설치된 버전을 확인한다
+* <devicename>에서 "cat /usr/local/ahnlab/chipsl/bldinfo.ini"를 실행한다
+* EXEC 실행 결과 메시지는 "1.0.7."를 포함한다
+로그를 즉시 남기도록 아래 옵션수행
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/hipstest set module off sendlog"를 실행한다
+결과 값에 header.result: 0 으로 출력
+\\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+* <devicename>에서 "./bin/caller ./tools/hipstest set fixloglevel 1"를 실행한다
+
+# <devicename>에서 제품이 설치된 디렉토리를 확인한다
+* <devicename>에서 "ls -al /usr/local/ahnlab/chipsl/"를 실행한다
+* EXEC 실행 결과 메시지는 "artifacts.txt"를 포함한다
+* EXEC 실행 결과 메시지는 "bldinfo.ini"를 포함한다
+EXEC 실행 결과 메시지는 "chipsl.pid"를 포함한다
+* EXEC 실행 결과 메시지는 "uninstall.sh"를 포함한다
+* EXEC 실행 결과 메시지는 "bin"를 포함한다
+* EXEC 실행 결과 메시지는 "cfg"를 포함한다
+* EXEC 실행 결과 메시지는 "db"를 포함한다
+* EXEC 실행 결과 메시지는 "lib"를 포함한다
+* EXEC 실행 결과 메시지는 "log"를 포함한다
+* EXEC 실행 결과 메시지는 "suarez"를 포함한다
+* EXEC 실행 결과 메시지는 "tools"를 포함한다
+
+# <devicename>에서 제품 툴이 설치된 디렉토리를 확인한다
+* <devicename>에서 "ls -al /usr/local/ahnlab/chipsl/tools"를 실행한다
+* EXEC 실행 결과 메시지는 "encrypt"를 포함한다
+* EXEC 실행 결과 메시지는 "hipstest"를 포함한다
+* EXEC 실행 결과 메시지는 "logviewer"를 포함한다
+* EXEC 실행 결과 메시지는 "sqlite3"를 포함한다
+
+# <devicename>에서 데몬 구동상태를 확인한다
+* <devicename>에서 "ps aux | grep hips"를 실행한다
+* EXEC 실행 결과 메시지는 "chipsl"를 포함한다
+
+# <devicename>에서 기본 정책을 백업 한다
+* <devicename>에서 "mkdir /var/policy/org"를 실행한다
+* <devicename>에서 "cp /var/policy/policy* /var/policy/org/"를 실행한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> 사용여부를 <booleanvalue1>로 한다 xpath는 <xpathval1> 이다
+
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 값을 Boolean value:<booleanvalue1>로 변경한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> boolean type 설정 <objname1>을 <booleanvalue1>로 한다 xpath는 <xpathval1> 이다
+
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 값을 Boolean value:<booleanvalue1>로 변경한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> string type 설정 <objname1>을 <stringvalue1>로 한다 xpath는 <xpathval1> 이다
+
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 값을 String value:<stringvalue1>로 변경한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> number type 설정 <objname1>을 <numbervalue1>로 한다 xpath는 <xpathval1> 이다
+
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 값을 Number value:<numbervalue1>로 변경한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> array type 설정 <objname1>을 <arrayvalue1>로 한다 xpath는 <xpathval1> 이다
+
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 값을 Array value:<arrayvalue1>로 변경한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> 정책 <rulename>:<rulenumber>의 boolean type 설정 <objname1>을 <booleanvalue1>로 변경을 한다 xpath는 <xpathval1> 이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 값을 Boolean value:<booleanvalue1>로 변경한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> 정책 <rulename>:<rulenumber>의 array type 설정 <objname1>을 <arrayvalue1>로 변경을 한다 xpath는 <xpathval1> 이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 값을 Array value:<arrayvalue1>로 변경한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> 정책 <rulename>:<rulenumber>의 string type 설정 <objname1>을 <stringvalue1>로 변경을 한다 xpath는 <xpathval1> 이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 값을 String value:<stringvalue1>로 변경한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> 정책 <rulename>:<rulenumber>의 number type 설정 <objname1>을 <numbervalue1>로 변경을 한다 xpath는 <xpathval1> 이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 값을 Number value:<numbervalue1>로 변경한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> 정책 rule:<rule_name>을 action:<action>, enable:<rule_enable>, direction:<rule_direction>, seq_id:<seq_id>, protocol:<protocol>, sip:<sip>, dip:<dip>, sport:<sport>, dport:<dport>, description:<description> 로 변경을 한다 xpath는 <xpathval1> 이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:"changeobj"를 Object Table을 통해 생성한다
+    |key    |type   |value |
+    |-------|-------|------|
+    |action    |string|<action>|
+    |enable    |boolean|<rule_enable>|
+    |direction    |string|<rule_direction>|
+    |seq_id    |number|<seq_id>|
+    |protocol    |string|<protocol>|
+    |sip    |array|<sip>|
+    |dip    |array|<dip>|
+    |sport    |array|<sport>|
+    |dport    |array|<dport>|
+    |description    |string|<description>|
+
+* Json Name:<policyname>을 보여준다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 값이 String:<rule_name>인 상위 Path의 값을 Object value:"changeobj"로 부분 업데이트한다
+* Json Name:<policyname>을 보여준다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> 정책 <objkey>:<objvalue>을 ip:<ip> 로 변경을 한다 xpath는 <xpathval1> 이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:"changeobj"를 Object Table을 통해 생성한다
+    |key    |type   |value |
+    |-------|-------|------|
+    |ip    |array|<ip>|
+    
+* Json Name:<policyname>을 보여준다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 값이 String:<objvalue>인 상위 Path의 값을 Object value:"changeobj"로 부분 업데이트한다
+* Json Name:<policyname>을 보여준다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> 정책 국가:<nation_code>을 direction:<rule_direction>, description:<description> 로 변경을 한다 xpath는 <xpathval1> 이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:"changeobj"를 Object Table을 통해 생성한다
+    |key    |type   |value |
+    |-------|-------|------|
+    |direction    |string|<rule_direction>|
+    |description    |string|<description>|
+
+* Json Name:<policyname>을 보여준다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 값이 String:<nation_code>인 상위 Path의 값을 Object value:"changeobj"로 부분 업데이트한다
+* Json Name:<policyname>을 보여준다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> 정책 <ips_rule_type> sid:<sid>을 action:<action>, blockAction:<block_action>, severity:<severity>, direction:<direction>, period:<period>, threshold:<threshold>, blockTime:<blockTime>, raw:<raw>, recommand:<recommand>, alarm:<alarm> 로 변경을 한다 xpath는 <xpathval1> 이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:"changeobj"를 Object Table을 통해 생성한다
+    |key    |type   |value |
+    |-------|-------|------|
+    |action    |string|<action>|
+    |blockAction    |string|<block_action>|
+    |severity    |string|<severity>|
+    |direction    |string|<direction>|
+    |period    |number|<period>|
+    |threshold    |number|<threshold>|
+    |blockTime    |number|<blockTime>|
+    |raw    |boolean|<raw>|
+    |recommendation    |boolean|<recommand>|
+    |alarm    |boolean|<alarm>|
+
+* Json Name:<policyname>을 보여준다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 값이 Number:<sid>인 상위 Path의 값을 Object value:"changeobj"로 부분 업데이트한다
+* Json Name:<policyname>을 보여준다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> 정책 <ips_rule_type> sid:<sid>을 action:<action>, blockAction:<block_action>, severity:<severity>, direction:<direction>, period:<period>, threshold:<threshold>, blockTime:<blockTime>, raw:<raw>, alarm:<alarm> 로 변경을 한다 xpath는 <xpathval1> 이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:"changeobj"를 Object Table을 통해 생성한다
+    |key    |type   |value |
+    |-------|-------|------|
+    |action    |string|<action>|
+    |blockAction    |string|<block_action>|
+    |severity    |string|<severity>|
+    |direction    |string|<direction>|
+    |period    |number|<period>|
+    |threshold    |number|<threshold>|
+    |blockTime    |number|<blockTime>|
+    |raw    |boolean|<raw>|
+    |alarm    |boolean|<alarm>|
+
+* Json Name:<policyname>을 보여준다
+* Json Name:<policyname>의 XPATH:<xpathval1>의 값이 Number:<sid>인 상위 Path의 값을 Object value:"changeobj"로 부분 업데이트한다
+* Json Name:<policyname>을 보여준다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> 방화벽 정책에 rule:<rule_name>, action:<action>, enable:<rule_enable>, direction:<rule_direction>, seq_id:<seq_id>, protocol:<protocol>, sip:<sip>, dip:<dip>, sport:<sport>, dport:<dport>, description:<description>로 추가. xpath는 <xpathval>이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:"fwruleobj"를 Object Table을 통해 생성한다
+    |key    |type   |value |
+    |-------|-------|------|
+    |rule_name  |string|<rule_name>|
+    |action    |string|<action>|
+    |enable    |boolean|<rule_enable>|
+    |direction    |string|<rule_direction>|
+    |seq_id    |number|<seq_id>|
+    |protocol    |string|<protocol>|
+    |sip    |array|<sip>|
+    |dip    |array|<dip>|
+    |sport    |array|<sport>|
+    |dport    |array|<dport>|
+    |description    |string|<description>|
+* Json Name:<policyname>의 XPATH:<xpathval>에 Json value:"fwruleobj"를 추가한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> 방화벽 정책에 nation:<nation>, direction:<nation_direction>, description:<description>로 추가. xpath는 <xpathval>이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:"fwruleobj"를 Object Table을 통해 생성한다
+    |key    |type   |value |
+    |-------|-------|------|
+    |nation  |string|<nation>|
+    |direction    |string|<nation_direction>|
+    |description    |string|<description>|
+* Json Name:<policyname>의 XPATH:<xpathval>에 Json value:"fwruleobj"를 추가한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> Agent 정책에 rule:<rule_name>, name:<obj_name>, ip:<obj_ip>, description<description>로 추가. xpath는 <xpathval>이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:"agentruleobj"를 Object Table을 통해 생성한다
+    |key    |type   |value |
+    |-------|-------|------|
+    |name  |string|<obj_name>|
+    |ip    |array|<obj_ip>|
+    |description    |string|<description>|
+Json Name:<policyname>을 보여준다
+* Json Name:<policyname>의 XPATH:<xpathval>에 Json value:"agentruleobj"를 추가한다
+Json Name:<policyname>을 보여준다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> Agent 정책에 rule:<rule_name>, code:<obj_name>, ip:<obj_ip>로 추가. xpath는 <xpathval>이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:"agentruleobj"를 Object Table을 통해 생성한다
+    |key    |type   |value |
+    |-------|-------|------|
+    |code  |string|<obj_name>|
+    |ip    |array|<obj_ip>|
+Json Name:<policyname>을 보여준다
+* Json Name:<policyname>의 XPATH:<xpathval>에 Json value:"agentruleobj"를 추가한다
+Json Name:<policyname>을 보여준다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> 방화벽 정책에 rule:<rule_name>을 삭제. xpath는 <xpathval>이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval>의 값이 String:<rule_name>인 상위 Path의 값을 삭제한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 설정파일 <policyfile> Agent 정책에 name:<obj_name>을 삭제. xpath는 <xpathval>이다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>을 Load해서 생성한다
+* Json Name:<policyname>의 XPATH:<xpathval>의 값이 String:<obj_name>인 상위 Path의 값을 삭제한다
+* Json Name:<policyname>을 Device:<devicename>의 File:<policyfile>에 저장한다
+
+# <devicename>에서 <policyname> 정책 암호화 CLI:<encryptcli>를 한다
+암호화 수행
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl"를 실행한다
+* <devicename>에서 <encryptcli>를 실행한다
+
+# <devicename>에서 tcp segmentation 정책을 적용한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_mgmt.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy fw /var/policy/policy_mgmt.json.enc"를 실행한다
+
+# <devicename>에서 <policyname> 정책 적용 CLI:<hipstestcli>을 한다
+정책 적용 수행
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl"를 실행한다
+* <devicename>에서 <hipstestcli>를 실행한다
+결과 값에 header.result: 0 으로 출력
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+
+# <devicename>에서 <policyname> 정책 적용 CLI:<hipstestcli>을 한다_예상결과 실패
+정책 적용 수행
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 <hipstestcli>를 실행한다
+결과 값에 header.result: 1 으로 출력
+* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"1"와 같다
+
+# <devicename>에서 CLI:<hipstestcli> 적용결과를 확인한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 <hipstestcli>를 실행한다
+
+# <devicename>에서 DB:<hipstestcli> 적용결과를 확인한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 <hipstestcli>를 실행한다
+
+/// 공격트래픽 발생케이스///
+//hping//
+# <devicename>에서 hping으로 탐지 트래픽을 발생 한다 조건은 sip:<sip>, dip:<dip>, sport:<sport>, dport:<dport>, protocol:<protocol> 이다
+탐지 트래픽 발생
+* <devicename>에서 protocol:<protocol> sip:<sip> dip:<dip> sport:<sport> dport:<dport> hping 트래픽 발생
+EXEC 실행 결과 코드는 "0"와 같다
+
+//FPG사용//
+# <devicename>에서 FPG rule 파일 download 및 적용
+* <devicename>에서 "cd smurf/tools/fpg"를 실행한다
+* <devicename>에서 "curl -O http://192.168.57.1/download/FPGconf.zip"를 실행한다
+* <devicename>에서 "unzip -o FPGconf.zip"를 실행한다
+
+# <devicename>에서 FPG rule 파일 설정(기본시그니처용)
+* <devicename>에서 "cd smurf/tools/fpg"를 실행한다
+* <devicename>에서 "cp snort_defaultsig.rule snort.rule"를 실행한다
+
+# <devicename>에서 FPG rule 파일 설정(additional 시그니처용)
+* <devicename>에서 "cd smurf/tools/fpg"를 실행한다
+* <devicename>에서 "cp snort_addsig.rule snort.rule"를 실행한다
+
+# <devicename>에서 FPG rule 파일 설정(사용자정의시그니처용)
+* <devicename>에서 "cd smurf/tools/fpg"를 실행한다
+* <devicename>에서 "cp snort_usersig.rule snort.rule"를 실행한다
+
+# <devicename>에서 FPG로 탐지 트래픽을 발생 한다 조건은 sip:<sip>, dip:<dip>, sid:<sidvalue>이다
+* <devicename>에서 "cd smurf/tools/fpg"를 실행한다
+* <devicename>에서 sip:<sip>, dip:<dip> FPG 트래픽 발생
+EXEC 실행 결과 코드는 "0"와 같다
+
+# <devicename>에서 FPG case2로 탐지 트래픽을 발생 한다 조건은 sip:<sip>, dip:<dip>, sid:<sidvalue>, traffic_count:<traffic_count>, traffic_delaytime:<traffic_delaytime>이다
+* <devicename>에서 "cd smurf/tools/fpg"를 실행한다
+* <devicename>에서 sip:<sip>, dip:<dip>, traffic_delaytime:<traffic_delaytime>, traffic_count:<traffic_count> FPG 트래픽 발생
+EXEC 실행 결과 코드는 "0"와 같다
+
+///OLD 결과판독 케이스////
+
+//FW일반//
+# <devicename>에서 <hipslogtype> 로그 처리결과를 확인 한다 예상결과가 <expect_result>이고 로그결과는 <log_result>이다, 추가판단조건 sip:<traffic_sip>, dip:<traffic_dip>, rule_name:<rule_name1>
+로그파일 확인
+* <devicename>에서 "ls -al /usr/local/ahnlab/chipsl/log/"를 실행한다
+\* 조회 결과는 금일날짜를 포함한다
+로그내용 확인 - 금일 날짜 로그db 내용 확인
+* <devicename>에서 FW 이벤트 로그를 확인한다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block", 조건2:"logcheck"에 부합할 때 EXEC 실행 결과 메시지는 <traffic_sip>를 포함한다, 아니면 포함 하지 않는다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block", 조건2:"logcheck"에 부합할 때 EXEC 실행 결과 메시지는 <traffic_dip>를 포함한다, 아니면 포함 하지 않는다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block", 조건2:"logcheck"에 부합할 때 EXEC 실행 결과 메시지는 <rule_name1>를 포함한다, 아니면 포함 하지 않는다
+
+//FW 국가DB//
+# <devicename>에서 <hipslogtype> 로그 처리결과를 확인 한다 예상결과가 <expect_result>이고 로그결과는 <log_result>이다, 추가판단조건 sip:<traffic_sip>, dip:<traffic_dip>, nation_code:<nation_code>
+로그파일 확인
+* <devicename>에서 "ls -al /usr/local/ahnlab/chipsl/log/"를 실행한다
+\* 조회 결과는 금일날짜를 포함한다
+로그내용 확인 - 금일 날짜 로그db 내용 확인
+* <devicename>에서 FW 이벤트 로그를 확인한다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block", 조건2:"logcheck"에 부합할 때 EXEC 실행 결과 메시지는 <traffic_sip>를 포함한다, 아니면 포함 하지 않는다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block", 조건2:"logcheck"에 부합할 때 EXEC 실행 결과 메시지는 <traffic_dip>를 포함한다, 아니면 포함 하지 않는다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block", 조건2:"logcheck"에 부합할 때 EXEC 실행 결과 메시지는 <nation_code>를 포함한다, 아니면 포함 하지 않는다
+
+# <devicename>에서 <hipslogtype> 로그 처리결과를 확인 한다 예상결과가 <expect_result>이고 로그결과는 <log_result>이다, 추가판단조건 sip:<traffic_sip>, dip:<traffic_dip>, attackid:<attackid>, action:<action>, blockaction:<blockaction>
+로그파일 확인
+* <devicename>에서 "ls -al /usr/local/ahnlab/chipsl/log/"를 실행한다
+\* 조회 결과는 금일날짜를 포함한다
+로그내용 확인 - 금일 날짜 로그db 내용 확인
+* <devicename>에서 IPS 이벤트 로그를 확인한다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block" or "detect" 조건2:"logcheck"에 부합할 때 EXEC 실행 결과 메시지는 <traffic_sip>를 포함한다, 아니면 포함 하지 않는다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block" or "detect" 조건2:"logcheck"에 부합할 때 EXEC 실행 결과 메시지는 <traffic_dip>를 포함한다, 아니면 포함 하지 않는다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block" or "detect" 조건2:"logcheck"에 부합할 때 EXEC 실행 결과 메시지는 <attackid>를 포함한다, 아니면 포함 하지 않는다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block" or "detect" 조건2:"logcheck"에 부합할 때 EXEC 실행 결과 메시지는 <action>를 포함한다, 아니면 포함 하지 않는다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block" or "detect" 조건2:"logcheck"에 부합할 때 EXEC 실행 결과 메시지는 <blockaction>를 포함한다, 아니면 포함 하지 않는다
+
+////NEW 로그처리 결과 판독////
+
+//FW일반//
+# <devicename>에서 <hipslogtype> 로그 처리결과를 확인 한다 예상결과가 <expect_result>이고 로그결과는 <log_result>이다, 추가판단조건 sip:<traffic_sip>, dip:<traffic_dip>, block_reason:<block_reason>, rule_name:<rule_name>, pdir:<pdir> json 사용
+* <devicename>에서 "ls -al /usr/local/ahnlab/chipsl/log/"를 실행한다
+\* 조회 결과는 금일날짜를 포함한다
+* <devicename>에서 FW 이벤트 로그를 확인한다
+* Sqlite 실행 결과 메시지를 Json 형태로 변환 해서 Json Name:"logresult"으로 생성한다
+* Json Name:"expectedlogobj"를 Object Table을 통해 생성한다
+    |key    |type   |value |
+    |-------|-------|------|
+    |src_ip    |string|<traffic_sip>|
+    |dst_ip    |string|<traffic_dip>|
+    |block_reason    |string|<block_reason>|
+    |rule_name    |string|<rule_name>|
+    |pdir    |string|<pdir>|
+    
+* Json Name:"expectedlogobj"을 보여준다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block" 조건2:"logcheck"에 부합할 때 Json Name:"logresult"의 XPATH:"[*]"의 값은 Object value:"expectedlogobj"를 포함하고 부합하지 않으면 포함하지 않는다
+
+//FW국가DB//
+# <devicename>에서 <hipslogtype> 로그 처리결과를 확인 한다 예상결과가 <expect_result>이고 로그결과는 <log_result>이다, 추가판단조건 sip:<traffic_sip>, dip:<traffic_dip>, block_reason:<block_reason>, rule_name:<rule_name>, block_nation:<block_nation>, ndir:<ndir> json 사용
+로그파일 확인
+* <devicename>에서 "ls -al /usr/local/ahnlab/chipsl/log/"를 실행한다
+\* 조회 결과는 금일날짜를 포함한다
+로그내용 확인 - 금일 날짜 로그db 내용 확인
+* <devicename>에서 FW 이벤트 로그를 확인한다
+* Sqlite 실행 결과 메시지를 Json 형태로 변환 해서 Json Name:"logresult"으로 생성한다
+* Json Name:"expectedlogobj"를 Object Table을 통해 생성한다
+    |key    |type   |value |
+    |-------|-------|------|
+    |src_ip    |string|<traffic_sip>|
+    |dst_ip    |string|<traffic_dip>|
+    |block_reason    |string|<block_reason>|
+    |rule_name    |string|<rule_name>|
+    |block_nation    |string|<block_nation>|
+    |ndir    |string|<ndir>|
+    
+* Json Name:"expectedlogobj"을 보여준다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block" 조건2:"logcheck"에 부합할 때 Json Name:"logresult"의 XPATH:"[*]"의 값은 Object value:"expectedlogobj"를 포함하고 부합하지 않으면 포함하지 않는다
+
+//IPS일반//
+# <devicename>에서 <hipslogtype> 로그 처리결과를 확인 한다 예상결과가 <expect_result>이고 로그결과는 <log_result>이다, 추가판단조건 sip:<traffic_sip>, dip:<traffic_dip>, attackid:<sid>, action:<block>, blockaction:<block_action>, priority<priority> json 사용
+로그파일 확인
+* <devicename>에서 "ls -al /usr/local/ahnlab/chipsl/log/"를 실행한다
+\* 조회 결과는 금일날짜를 포함한다
+로그내용 확인 - 금일 날짜 로그db 내용 확인
+* <devicename>에서 IPS 이벤트 로그를 확인한다
+* Sqlite 실행 결과 메시지를 Json 형태로 변환 해서 Json Name:"logresult"으로 생성한다
+* Json Name:"expectedlogobj"를 Object Table을 통해 생성한다
+    |key    |type   |value |
+    |-------|-------|------|
+    |src_ip    |string|<traffic_sip>|
+    |dst_ip    |string|<traffic_dip>|
+    |attackid    |string|<sid>|
+    |block    |string|<block>|
+    |block_action    |string|<block_action>|
+    |priority    |string|<priority>|
+    
+* Json Name:"expectedlogobj"을 보여준다
+Json Name:"logresult"의 XPATH:"[*]"의 값은 Object value:"expectedlogobj"를 포함한다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block" or "detect" 조건2:"logcheck"에 부합할 때 Json Name:"logresult"의 XPATH:"[*]"의 값은 Object value:"expectedlogobj"를 포함하고 부합하지 않으면 포함하지 않는다
+
+판단 기준 값 <expect_result>와 <log_result>가 조건1:"block" or "detect" 조건2:"logcheck"에 부합할 때 EXEC 실행 결과 메시지는 Json Name:"logresult"의 XPATH:"[*].src_ip"의 값 String value:<traffic_sip>, XPATH:"[*].dst_ip"의 값 String value:<traffic_dip>, XPATH:"[*].attackid"의 값 String value:<sid>, XPATH:"[*].block"의 값 String value:<block>, XPATH:"[*].block_action"의 값 String value:<block_action>와 같다, 조건에 부합하지 않으면 로그결과가 존재하지 않는다
+
+//IPS 방향 및 공격인정시간, 횟수 케이스//
+# <devicename>에서 <hipslogtype> 로그 처리결과를 확인 한다 예상결과가 <expect_result>이고 로그결과는 <log_result>이다, 추가판단조건 sip:<traffic_sip>, dip:<traffic_dip>, attackid:<sid>, action:<block>, blockaction:<block_action>, priority<priority>, ndir<ndir> json 사용
+로그파일 확인
+* <devicename>에서 "ls -al /usr/local/ahnlab/chipsl/log/"를 실행한다
+\* 조회 결과는 금일날짜를 포함한다
+로그내용 확인 - 금일 날짜 로그db 내용 확인
+* <devicename>에서 IPS 이벤트 로그를 확인한다
+* Sqlite 실행 결과 메시지를 Json 형태로 변환 해서 Json Name:"logresult"으로 생성한다
+* Json Name:"expectedlogobj"를 Object Table을 통해 생성한다
+    |key    |type   |value |
+    |-------|-------|------|
+    |src_ip    |string|<traffic_sip>|
+    |dst_ip    |string|<traffic_dip>|
+    |attackid    |string|<sid>|
+    |block    |string|<block>|
+    |block_action    |string|<block_action>|
+    |priority    |string|<priority>|
+    |ndir    |string|<ndir>|
+* Json Name:"expectedlogobj"을 보여준다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block" 조건2:"logcheck"에 부합할 때 Json Name:"logresult"의 XPATH:"[*]"의 값은 Object value:"expectedlogobj"를 포함하고 부합하지 않으면 포함하지 않는다
+
+///정책초기화 cpt///
+
+# <devicename>에서 방화벽 정책 초기화를 한다
+정책초기화
+* <devicename>에서 "rm -rf /var/policy/policy_fw.json"를 실행한다
+* <devicename>에서 "cp /var/policy/org/policy_fw.json /var/policy/policy_fw.json"를 실행한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_fw.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy fw /var/policy/policy_fw.json.enc"를 실행한다
+결과 값에 header.result: 0 으로 출력
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+
+# <devicename>에서 최대값 설정된 방화벽 정책으로 초기화를 한다
+정책초기화
+* <devicename>에서 "rm -rf /var/policy/policy_fw.json"를 실행한다
+* <devicename>에서 "cp /var/policy/org/policy_fw_rule_ip_max.json /var/policy/policy_fw.json"를 실행한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_fw.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy fw /var/policy/policy_fw.json.enc"를 실행한다
+결과 값에 header.result: 0 으로 출력
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+
+# <devicename>에서 IPS 정책 초기화를 한다
+정책초기화
+* <devicename>에서 "rm -rf /var/policy/policy_mgmt.json"를 실행한다
+* <devicename>에서 "cp /var/policy/org/policy_mgmt.json /var/policy/policy_mgmt.json"를 실행한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_mgmt.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy mgmt /var/policy/policy_mgmt.json.enc"를 실행한다
+결과 값에 header.result: 0 으로 출력
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+
+# <devicename>에서 AGENT 정책 초기화를 한다
+정책초기화
+* <devicename>에서 "rm -rf /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "cp /var/policy/org/policy_agent.json /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy agent /var/policy/policy_agent.json.enc"를 실행한다
+결과 값에 header.result: 0 으로 출력
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+
+# <devicename>에서 내부 네트워크, 예외IP, 사용자정의 국가 최대값 설정된 AGENT 정책으로 초기화를 한다
+* <devicename>에서 "rm -rf /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "cp /var/policy/org/policy_agent_max_intip_exceptip_user_nation.json /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy agent /var/policy/policy_agent.json.enc"를 실행한다
+결과 값에 header.result: 0 으로 출력
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+
+# <devicename>에서 <hipslogtype> 로그 초기화를 한다
+* <devicename>에서 sqlite를 사용하여 금일 <hipslogtype> 로그를 초기화 한다
+
+# <devicename>에서 FW 이벤트 로그를 확인한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/log"를 실행한다
+* <devicename>에서 "event=$(ls |grep fw |head -n 1)"를 실행한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/sqlite3 /usr/local/ahnlab/chipsl/log/$event 'pragma key=\"RmxRkwl77*)tkfdkskarp80*&gkthtj\"; select log_msg, \"$$d$$\" from send_failed_log;'"를 실행한다
+
+# <devicename>에서 IPS 이벤트 로그를 확인한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/log"를 실행한다
+* <devicename>에서 "event=$(ls |grep ips |head -n 1)"를 실행한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/sqlite3 /usr/local/ahnlab/chipsl/log/$event 'pragma key=\"RmxRkwl77*)tkfdkskarp80*&gkthtj\"; select log_msg, \"$$d$$\" from send_failed_log;'"를 실행한다
+
+# <devicename>에서 FW 이벤트 로그 초기화를 한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/log"를 실행한다
+* <devicename>에서 "event=$(ls |grep fw |head -n 1)"를 실행한다
+\* <devicename>에서 "cd /usr/local/ahnlab/chipsl/tools"를 실행한다
+\* <devicename>에서 "./sqlite3 /usr/local/ahnlab/chipsl/log/$event 'pragma key=\"RmxRkwl77*)tkfdkskarp80*&gkthtj\"; delete from send_failed_log;'"를 실행한다
+* <devicename>에서 "rm -rf $event"를 실행한다
+
+# <devicename>에서 IPS 이벤트 로그 초기화를 한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/log"를 실행한다
+* <devicename>에서 "event=$(ls |grep ips |head -n 1)"를 실행한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/sqlite3 /usr/local/ahnlab/chipsl/log/$event 'pragma key=\"RmxRkwl77*)tkfdkskarp80*&gkthtj\"; delete from send_failed_log;'"를 실행한다
+
+============================================================================== TCPDUMP 처리관련 ============================================================================================
+
+# HIPS:<device_name>에서 TCPDUMP명:<dump_name>으로 인터페이스: <iface_name>에 대해 TCPDUMP를 수행한다 (<dumpoption>)
+* <device_name>에서 TCPDUMP명:<dump_name>, INTERFACE:<iface_name>, FILTER:<dumpoption>로 TCPDUMP 한다
+
+# HIPS:<device_name>에서 TCPDUMP명:<dump_name> 내용을 확인한다 (<expect_result>, <traffic_sip>, <traffic_dip>, <count>)
+* 판단 기준 값 <expect_result>가 조건1:"allow" 에 부합할 때 <device_name>에서 <dump_name> pcap파일 Src:<traffic_dip>, Dst:<traffic_sip> 조건의 패킷이 <count>건 이상인지 결과를 확인한다
+
+# HIPS:<device_name>에서 TCPDUMP명:<dump_name> 내용을 확인한다_IPS (<expect_result>, <traffic_sip>, <traffic_dip>, <count>)
+* 판단 기준 값 <expect_result>가 조건1:"block" 또는 조건2:"unblock" 에 부합할 때 <device_name>에서 <dump_name> pcap파일 Src:<traffic_dip>, Dst:<traffic_sip> 조건의 패킷이 <count>건 이상인지 결과를 확인한다
+
+# HIPS:<device_name>에서 TCPDUMP명:<dump_name> 내용을 확인한다2 (<recode>, <traffic_sip>, <traffic_dip>, <count>)
+* 판단 기준 값 <recode>가 조건1:"recode" 에 부합할 때 <device_name>에서 <dump_name> pcap파일 Src:<traffic_dip>, Dst:<traffic_sip> 조건의 패킷이 <count>건 이상인지 결과를 확인한다
+
+============================================================================== HYUNSEOK.KIM ============================================================================================
+
+# HIPS:<devicename>에 기본 방화벽 테스트를 위한 설정을 수행한다
+* <devicename>에서 "rm -rf /var/policy/policy_fw.json"를 실행한다 
+* <devicename>에서 "cp /var/policy/org/policy_fw.json /var/policy/policy_fw.json"를 실행한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_fw.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy fw /var/policy/policy_fw.json.enc"를 실행한다
+* EXEC 실행 결과 코드는 "0"와 같다
+
+# HIPS:<devicename>에 기본 방화벽 테스트를 위한 정책을 설정 및 적용한다 (<policy_enable>, <rule_name1>, <rule_name2>, <action1>, <action2>, <rule_enable1>, <rule_enable2>, <rule_direction1>, <rule_direction2>, <seq_id1>, <seq_id2>, <protocol1>, <protocol2>, <sip1>, <sip2>, <dip1>, <dip2>, <sport1>, <sport2>, <dport1>, <dport2>, <description1>, <description2>)
+* <devicename>에서 "policy_fw" 설정파일 "/var/policy/policy_fw.json" 사용여부를 <policy_enable>로 한다 xpath는 "body.policy_hips_firewall.enable" 이다
+* <devicename>에서 "policy_fw" 설정파일 "/var/policy/policy_fw.json" 정책 rule:<rule_name1>을 action:<action1>, enable:<rule_enable1>, direction:<rule_direction1>, seq_id:<seq_id1>, protocol:<protocol1>, sip:<sip1>, dip:<dip1>, sport:<sport1>, dport:<dport1>, description:<description1> 로 변경을 한다 xpath는 "body.policy_hips_firewall.rule.[*].rule_name" 이다
+* <devicename>에서 "policy_fw" 설정파일 "/var/policy/policy_fw.json" 정책 rule:<rule_name2>을 action:<action2>, enable:<rule_enable2>, direction:<rule_direction2>, seq_id:<seq_id2>, protocol:<protocol2>, sip:<sip2>, dip:<dip2>, sport:<sport2>, dport:<dport2>, description:<description2> 로 변경을 한다 xpath는 "body.policy_hips_firewall.rule.[*].rule_name" 이다
+* <devicename>에서 "policy_fw" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_fw.json"를 한다
+* <devicename>에서 "policy_fw" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy fw /var/policy/policy_fw.json.enc"을 한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/log"를 실행한다
+* <devicename>에서 "event=$(ls |grep fw |head -n 1)"를 실행한다
+* <devicename>에서 "rm -rf $event"를 실행한다
+
+# <devicename>에서 기본 방화벽 테스트의 탐지 트래픽을 발생시킨다 (<traffic_sip1>, <traffic_sip2>, <traffic_sport1>, <traffic_sport2>, <traffic_dport1>, <traffic_dport2>, <traffic_protocol1>, <traffic_protocol2>)
+* <devicename>에서 hping으로 탐지 트래픽을 발생 한다 조건은 sip:<traffic_sip1>, dip:"$VS_DUT01.ip", sport:<traffic_sport1>, dport:<traffic_dport1>, protocol:<traffic_protocol1> 이다
+* 1초 동안 대기
+* <devicename>에서 hping으로 탐지 트래픽을 발생 한다 조건은 sip:<traffic_sip2>, dip:"$VS_DUT01.ip", sport:<traffic_sport2>, dport:<traffic_dport2>, protocol:<traffic_protocol2> 이다
+* 15초 동안 대기
+
+# HIPS:<devicename>에서 기본 방화벽 테스트에 대한 이벤트 로그를 확인한다 (<expect_result1>, <expect_result2>, <log_result1>, <log_result2>, <traffic_sip1>, <traffic_sip2>, <rule_name1>, <rule_name2>, <rule_direction1>, <rule_direction2>)
+* <devicename>에서 "event" 로그 처리결과를 확인 한다 예상결과가 <expect_result1>이고 로그결과는 <log_result1>이다, 추가판단조건 sip:<traffic_sip1>, dip:"$VS_DUT01.ip", block_reason:"fw", rule_name:<rule_name1>, pdir:<rule_direction1> json 사용
+* 1초 동안 대기
+* <devicename>에서 "event" 로그 처리결과를 확인 한다 예상결과가 <expect_result2>이고 로그결과는 <log_result2>이다, 추가판단조건 sip:<traffic_sip2>, dip:"$VS_DUT01.ip", block_reason:"fw", rule_name:<rule_name2>, pdir:<rule_direction2> json 사용
+
+# HIPS:<devicename>에 국가 DB 방화벽 테스트를 위한 설정을 수행한다
+* <devicename>에서 "rm -rf /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "rm -rf /var/policy/policy_fw.json"를 실행한다
+* <devicename>에서 "cp /var/policy/org/policy_agent.json /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "cp /var/policy/org/policy_fw.json /var/policy/policy_fw.json"를 실행한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_fw.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy agent /var/policy/policy_agent.json.enc"를 실행한다
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy fw /var/policy/policy_fw.json.enc"를 실행한다
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+
+# HIPS:<devicename>에 국가 DB 방화벽 테스트를 위한 정책을 설정 및 적용한다 (<user_nation>, <user_nation_ip>, <internal_ip>, <policy_enable>, <nation1>, <nation2>, <nation_direction1>, <nation_direction2>, <nation_description1>, <nation_description2>)
+* <devicename>에서 "policy_agent" 설정파일 "/var/policy/policy_agent.json" 정책 "user_nation":"0"의 string type 설정 "code"을 <user_nation>로 변경을 한다 xpath는 "body.policy_hips_agent.user_nation.[0].code" 이다
+* <devicename>에서 "policy_agent" 설정파일 "/var/policy/policy_agent.json" 정책 "user_nation":"0"의 array type 설정 "ip"을 <user_nation_ip>로 변경을 한다 xpath는 "body.policy_hips_agent.user_nation.[0].ip" 이다
+* <devicename>에서 "policy_agent" 설정파일 "/var/policy/policy_agent.json" 정책 "internal_network":"0"의 array type 설정 "ip"을 <internal_ip>로 변경을 한다 xpath는 "body.policy_hips_agent.internal_network.[0].ip" 이다
+* <devicename>에서 "policy_fw" 설정파일 "/var/policy/policy_fw.json" 사용여부를 <policy_enable>로 한다 xpath는 "body.policy_hips_firewall.enable" 이다
+* <devicename>에서 "policy_fw" 설정파일 "/var/policy/policy_fw.json" 정책 "block_nation":"0"의 string type 설정 "nation"을 <nation1>로 변경을 한다 xpath는 "body.policy_hips_firewall.block_nation.[0].nation" 이다
+* <devicename>에서 "policy_fw" 설정파일 "/var/policy/policy_fw.json" 정책 "block_nation":"0"의 string type 설정 "direction"을 <nation_direction1>로 변경을 한다 xpath는 "body.policy_hips_firewall.block_nation.[0].direction" 이다
+* <devicename>에서 "policy_fw" 설정파일 "/var/policy/policy_fw.json" 정책 "block_nation":"0"의 string type 설정 "description"을 <nation_description1>로 변경을 한다 xpath는 "body.policy_hips_firewall.block_nation.[0].description" 이다
+* <devicename>에서 "policy_fw" 설정파일 "/var/policy/policy_fw.json" 정책 "block_nation":"1"의 string type 설정 "nation"을 <nation2>로 변경을 한다 xpath는 "body.policy_hips_firewall.block_nation.[1].nation" 이다
+* <devicename>에서 "policy_fw" 설정파일 "/var/policy/policy_fw.json" 정책 "block_nation":"1"의 string type 설정 "direction"을 <nation_direction2>로 변경을 한다 xpath는 "body.policy_hips_firewall.block_nation.[1].direction" 이다
+* <devicename>에서 "policy_fw" 설정파일 "/var/policy/policy_fw.json" 정책 "block_nation":"1"의 string type 설정 "description"을 <nation_description2>로 변경을 한다 xpath는 "body.policy_hips_firewall.block_nation.[1].description" 이다
+* <devicename>에서 "policy_fw" 설정파일 "/var/policy/policy_fw.json" 정책 "block_nation":"2"의 string type 설정 "nation"을 <user_nation>로 변경을 한다 xpath는 "body.policy_hips_firewall.block_nation.[2].nation" 이다
+* <devicename>에서 "policy_fw" 설정파일 "/var/policy/policy_fw.json" 정책 "block_nation":"2"의 string type 설정 "direction"을 <nation_direction2>로 변경을 한다 xpath는 "body.policy_hips_firewall.block_nation.[2].direction" 이다
+* <devicename>에서 "policy_fw" 설정파일 "/var/policy/policy_fw.json" 정책 "block_nation":"2"의 string type 설정 "description"을 <nation_description2>로 변경을 한다 xpath는 "body.policy_hips_firewall.block_nation.[2].description" 이다
+* <devicename>에서 "policy_agent" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_agent.json"를 한다
+* <devicename>에서 "policy_agent" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy agent /var/policy/policy_agent.json.enc"을 한다
+* <devicename>에서 "policy_fw" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_fw.json"를 한다
+* <devicename>에서 "policy_fw" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy fw /var/policy/policy_fw.json.enc"을 한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/log"를 실행한다
+* <devicename>에서 "event=$(ls |grep fw |head -n 1)"를 실행한다
+* <devicename>에서 "rm -rf $event"를 실행한다
+
+# <devicename>에서 국가 DB 방화벽 테스트의 탐지 트래픽을 발생시킨다 (<traffic_sip1>, <traffic_sip2>, <user_tip>, <traffic_sport1>, <traffic_sport2>, <traffic_dport1>, <traffic_dport2>, <traffic_protocol1>, <traffic_protocol2>)
+* <devicename>에서 hping으로 탐지 트래픽을 발생 한다 조건은 sip:<traffic_sip1>, dip:"$VS_DUT01.ip", sport:<traffic_sport1>, dport:<traffic_dport1>, protocol:<traffic_protocol1> 이다
+* 1초 동안 대기
+* <devicename>에서 hping으로 탐지 트래픽을 발생 한다 조건은 sip:<traffic_sip2>, dip:"$VS_DUT01.ip", sport:<traffic_sport2>, dport:<traffic_dport2>, protocol:<traffic_protocol2> 이다
+* 1초 동안 대기
+* <devicename>에서 hping으로 탐지 트래픽을 발생 한다 조건은 sip:<user_tip>, dip:"$VS_DUT01.ip", sport:<traffic_sport2>, dport:<traffic_dport2>, protocol:<traffic_protocol2> 이다
+* 15초 동안 대기
+
+# HIPS:<devicename>에서 국가 DB 방화벽 테스트에 대한 이벤트 로그를 확인한다 (<expect_result1>, <expect_result2>, <log_result1>, <log_result2>, <traffic_sip1>, <traffic_sip2>, <user_tip>, <nation1>, <nation2>, <user_nation>, <ndir1>, <ndir2>)
+* <devicename>에서 "event" 로그 처리결과를 확인 한다 예상결과가 <expect_result1>이고 로그결과는 <log_result1>이다, 추가판단조건 sip:<traffic_sip1>, dip:"$VS_DUT01.ip", block_reason:"sn", rule_name:"nation", block_nation:<nation1>, ndir:<ndir1> json 사용
+* 1초 동안 대기
+* <devicename>에서 "event" 로그 처리결과를 확인 한다 예상결과가 <expect_result2>이고 로그결과는 <log_result2>이다, 추가판단조건 sip:<traffic_sip2>, dip:"$VS_DUT01.ip", block_reason:"sn", rule_name:"nation", block_nation:<nation2>, ndir:<ndir2> json 사용
+* 1초 동안 대기
+* <devicename>에서 "event" 로그 처리결과를 확인 한다 예상결과가 <expect_result2>이고 로그결과는 <log_result2>이다, 추가판단조건 sip:<user_tip>, dip:"$VS_DUT01.ip", block_reason:"sn", rule_name:"nation", block_nation:<user_nation>, ndir:<ndir2> json 사용
+
+# HIPS:<devicename>에 최대 정책 방화벽 테스트를 위한 설정을 수행한다
+* <devicename>에서 "rm -rf /var/policy/policy_fw.json"를 실행한다
+* <devicename>에서 "rm -rf /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "cp /var/policy/org/policy_fw_rule_ip_max.json /var/policy/policy_fw.json"를 실행한다
+* <devicename>에서 "cp /var/policy/org/policy_agent.json /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_fw.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy fw /var/policy/policy_fw.json.enc"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy fw /var/policy/policy_agent.json.enc"를 실행한다
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+
+# HIPS:<devicename>에 최대 정책이 추가된 상태에서의 동작을 확인한다 (<rule_name1>, <rule_name2>, <rule_name3>, <action>, <rule_enable>, <rule_direction>, <seq_id1>, <seq_id2>, <protocol>, <sip1>, <sip2>, <dip>, <sport>, <dport>, <description1>, <description2>)
+방화벽 정책 최대 추가된 상태에서 신규룰 추가 제한 확인
+* <devicename>에서 "policy_fw" 설정파일 "/var/policy/policy_fw.json" 방화벽 정책에 rule:<rule_name1>, action:<action>, enable:<rule_enable>, direction:<rule_direction>, seq_id:<seq_id1>, protocol:<protocol>, sip:<sip1>, dip:<dip>, sport:<sport>, dport:<dport>, description:<description1>로 추가. xpath는 "body.policy_hips_firewall.rule"이다
+* <devicename>에서 "policy_fw" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_fw.json"를 한다
+* <devicename>에서 "policy_fw" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy fw /var/policy/policy_fw.json.enc"을 한다_예상결과 실패
+* 1초 동안 대기
+방화벽 정책 최대 추가된 상태에서 룰 1개 삭제 후 추가 확인
+* <devicename>에서 "policy_fw" 설정파일 "/var/policy/policy_fw.json" 방화벽 정책에 rule:<rule_name1>을 삭제. xpath는 "body.policy_hips_firewall.rule.[*].rule_name"이다
+* <devicename>에서 "policy_fw" 설정파일 "/var/policy/policy_fw.json" 방화벽 정책에 rule:<rule_name3>을 삭제. xpath는 "body.policy_hips_firewall.rule.[*].rule_name"이다
+* <devicename>에서 "policy_fw" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_fw.json"를 한다
+* <devicename>에서 "policy_fw" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy fw /var/policy/policy_fw.json.enc"을 한다
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+* 1초 동안 대기
+* <devicename>에서 "policy_fw" 설정파일 "/var/policy/policy_fw.json" 방화벽 정책에 rule:<rule_name1>, action:<action>, enable:<rule_enable>, direction:<rule_direction>, seq_id:<seq_id1>, protocol:<protocol>, sip:<sip1>, dip:<dip>, sport:<sport>, dport:<dport>, description:<description1>로 추가. xpath는 "body.policy_hips_firewall.rule"이다
+* <devicename>에서 "policy_fw" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_fw.json"를 한다
+* <devicename>에서 "policy_fw" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy fw /var/policy/policy_fw.json.enc"을 한다
+* 1초 동안 대기
+방화벽 정책 최대 추가된 상태에서 일부 룰 변경
+* <devicename>에서 "policy_fw" 설정파일 "/var/policy/policy_fw.json" 정책 rule:<rule_name2>을 action:<action>, enable:<rule_enable>, direction:<rule_direction>, seq_id:<seq_id2>, protocol:<protocol>, sip:<sip2>, dip:<dip>, sport:<sport>, dport:<dport>, description:<description2> 로 변경을 한다 xpath는 "body.policy_hips_firewall.rule.[*].rule_name" 이다
+* <devicename>에서 "policy_fw" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_fw.json"를 한다
+* <devicename>에서 "policy_fw" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy fw /var/policy/policy_fw.json.enc"을 한다
+* 1초 동안 대기
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/log"를 실행한다
+* <devicename>에서 "event=$(ls |grep fw |head -n 1)"를 실행한다
+* <devicename>에서 "rm -rf $event"를 실행한다
+
+# <devicename>에서 최대 정책 방화벽 테스트의 탐지 트래픽을 발생시킨다 (<traffic_sip1>, <traffic_sip2>, <traffic_sip4>, <traffic_sport>, <traffic_dport>, <traffic_protocol1>, <traffic_protocol2>)
+* "ATTACK01"에서 hping으로 탐지 트래픽을 발생 한다 조건은 sip:<traffic_sip1>, dip:"$VS_DUT01.ip", sport:<traffic_sport>, dport:<traffic_dport>, protocol:<traffic_protocol1> 이다
+* 1초 동안 대기
+* "ATTACK01"에서 hping으로 탐지 트래픽을 발생 한다 조건은 sip:<traffic_sip2>, dip:"$VS_DUT01.ip", sport:<traffic_sport>, dport:<traffic_dport>, protocol:<traffic_protocol1> 이다
+* 1초 동안 대기
+* "ATTACK01"에서 hping으로 탐지 트래픽을 발생 한다 조건은 sip:<traffic_sip4>, dip:"$VS_DUT01.ip", sport:<traffic_sport>, dport:<traffic_dport>, protocol:<traffic_protocol2> 이다
+* 15초 동안 대기
+
+# HIPS:<devicename>에서 최대 정책 방화벽 테스트에 대한 이벤트 로그를 확인한다 (<expect_result1>, <expect_result2>, <expect_result4>, <log_result1>, <log_result2>, <log_result4>, <traffic_sip1>, <traffic_sip2>, <traffic_sip4>, <rule_name1>, <rule_name2>, <rule_name4>, <rule_direction>)
+* "VS_DUT01"에서 "event" 로그 처리결과를 확인 한다 예상결과가 <expect_result1>이고 로그결과는 <log_result1>이다, 추가판단조건 sip:<traffic_sip1>, dip:"$VS_DUT01.ip", block_reason:"fw", rule_name:<rule_name1>, pdir:<rule_direction> json 사용
+* 1초 동안 대기
+* "VS_DUT01"에서 "event" 로그 처리결과를 확인 한다 예상결과가 <expect_result2>이고 로그결과는 <log_result2>이다, 추가판단조건 sip:<traffic_sip2>, dip:"$VS_DUT01.ip", block_reason:"fw", rule_name:<rule_name2>, pdir:<rule_direction> json 사용
+* 1초 동안 대기
+* "VS_DUT01"에서 "event" 로그 처리결과를 확인 한다 예상결과가 <expect_result4>이고 로그결과는 <log_result4>이다, 추가판단조건 sip:<traffic_sip4>, dip:"$VS_DUT01.ip", block_reason:"fw", rule_name:<rule_name4>, pdir:<rule_direction> json 사용
+
+# HIPS:<devicename>에 최대 사용자 정의 국가 방화벽 테스트를 위한 설정을 수행한다
+* <devicename>에서 "rm -rf /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "rm -rf /var/policy/policy_fw.json"를 실행한다
+* <devicename>에서 "cp /var/policy/org/policy_agent_max_intip_exceptip_user_nation.json /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "cp /var/policy/org/policy_fw.json /var/policy/policy_fw.json"를 실행한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_fw.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy agent /var/policy/policy_agent.json.enc"를 실행한다
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy fw /var/policy/policy_fw.json.enc"를 실행한다
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+
+# HIPS:<devicename>에 최대 사용자 정의 국가가 추가된 상태에서의 동작을 확인한다 (<user_nation1>, <user_nation2>, <user_nation3>, <user_nation4>, <user_nation_ip1>, <user_nation_ip2>, <nation_direction>, <nation_description1>, <nation_description2>, <nation_description4>, <policy_enable>)
+AGENT 정책에 사용자정의 국가 최대 설정 상태에서 신규 사용자정의 국가 추가 시 동작 확인
+* <devicename>에서 "policy_agent" 설정파일 "/var/policy/policy_agent.json" Agent 정책에 rule:"user_nation", code:<user_nation1>, ip:<user_nation_ip1>로 추가. xpath는 "body.policy_hips_agent.user_nation"이다
+* <devicename>에서 "policy_agent" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_agent.json"를 한다
+* <devicename>에서 "policy_agent" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy agent /var/policy/policy_agent.json.enc"을 한다_예상결과 실패
+AGENT 정책 최대 추가된 상태에서 룰 1개 삭제 후 추가 확인
+* <devicename>에서 "policy_agent" 설정파일 "/var/policy/policy_agent.json" Agent 정책에 name:<user_nation1>을 삭제. xpath는 "body.policy_hips_agent.user_nation.[*].code"이다
+* <devicename>에서 "policy_agent" 설정파일 "/var/policy/policy_agent.json" Agent 정책에 name:<user_nation3>을 삭제. xpath는 "body.policy_hips_agent.user_nation.[*].code"이다
+* <devicename>에서 "policy_agent" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_agent.json"를 한다
+* <devicename>에서 "policy_agent" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy agent /var/policy/policy_agent.json.enc"을 한다
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+* <devicename>에서 "policy_agent" 설정파일 "/var/policy/policy_agent.json" Agent 정책에 rule:"user_nation", code:<user_nation1>, ip:<user_nation_ip1>로 추가. xpath는 "body.policy_hips_agent.user_nation"이다
+* <devicename>에서 "policy_agent" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_agent.json"를 한다
+* <devicename>에서 "policy_agent" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy agent /var/policy/policy_agent.json.enc"을 한다
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+AGENT 정책 최대 추가된 상태에서 일부 룰 변경
+* <devicename>에서 "policy_agent" 설정파일 "/var/policy/policy_agent.json" 정책 "code":<user_nation2>을 ip:<user_nation_ip2> 로 변경을 한다 xpath는 "body.policy_hips_agent.user_nation.[*].code" 이다
+* <devicename>에서 "policy_agent" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_agent.json"를 한다
+* <devicename>에서 "policy_agent" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy fw /var/policy/policy_agent.json.enc"을 한다
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+방화벽 정책 활성화
+* <devicename>에서 "policy_fw" 설정파일 "/var/policy/policy_fw.json" 사용여부를 <policy_enable>로 한다 xpath는 "body.policy_hips_firewall.enable" 이다
+사용자정의 국가를 방화벽 룰에 추가: nation1: 신규추가 국가, nation2: 변경한 국가, nation3: 기존에 있던 사용자 정의 국가
+* <devicename>에서 "policy_fw" 설정파일 "/var/policy/policy_fw.json" 방화벽 정책에 nation:<user_nation1>, direction:<nation_direction>, description:<nation_description1>로 추가. xpath는 "body.policy_hips_firewall.block_nation"이다
+* <devicename>에서 "policy_fw" 설정파일 "/var/policy/policy_fw.json" 방화벽 정책에 nation:<user_nation2>, direction:<nation_direction>, description:<nation_description2>로 추가. xpath는 "body.policy_hips_firewall.block_nation"이다
+* <devicename>에서 "policy_fw" 설정파일 "/var/policy/policy_fw.json" 방화벽 정책에 nation:<user_nation4>, direction:<nation_direction>, description:<nation_description4>로 추가. xpath는 "body.policy_hips_firewall.block_nation"이다
+방화벽 정책을 적용시키기 위해 policy_fw.json 암호화 및 정책적용
+* <devicename>에서 "policy_fw" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_fw.json"를 한다
+* <devicename>에서 "policy_fw" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy fw /var/policy/policy_fw.json.enc"을 한다
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/log"를 실행한다
+* <devicename>에서 "event=$(ls |grep fw |head -n 1)"를 실행한다
+* <devicename>에서 "rm -rf $event"를 실행한다
+
+# <devicename>에서 최대 사용자 정의 국가 방화벽 테스트의 탐지 트래픽을 발생시킨다 (<traffic_sip1>, <traffic_sip2>, <traffic_sip4>, <traffic_sport>, <traffic_dport>, <traffic_protocol>)
+* <devicename>에서 hping으로 탐지 트래픽을 발생 한다 조건은 sip:<traffic_sip1>, dip:"$VS_DUT01.ip", sport:<traffic_sport>, dport:<traffic_dport>, protocol:<traffic_protocol> 이다
+* 1초 동안 대기
+* <devicename>에서 hping으로 탐지 트래픽을 발생 한다 조건은 sip:<traffic_sip2>, dip:"$VS_DUT01.ip", sport:<traffic_sport>, dport:<traffic_dport>, protocol:<traffic_protocol> 이다
+* 1초 동안 대기
+* <devicename>에서 hping으로 탐지 트래픽을 발생 한다 조건은 sip:<traffic_sip4>, dip:"$VS_DUT01.ip", sport:<traffic_sport>, dport:<traffic_dport>, protocol:<traffic_protocol> 이다
+* 15초 동안 대기
+
+# HIPS:<devicename>에서 최대 사용자 정의 국가 방화벽 테스트에 대한 이벤트 로그를 확인한다 (<expect_result1>, <expect_result2>, <expect_result4>, <log_result1>, <log_result2>, <log_result4>, <traffic_sip1>, <traffic_sip2>, <traffic_sip4>, <user_nation1>, <user_nation2>, <user_nation4>, <ndir>)
+* <devicename>에서 "event" 로그 처리결과를 확인 한다 예상결과가 <expect_result1>이고 로그결과는 <log_result1>이다, 추가판단조건 sip:<traffic_sip1>, dip:"$VS_DUT01.ip", block_reason:"sn", rule_name:"nation", block_nation:<user_nation1>, ndir:<ndir> json 사용
+* 1초 동안 대기
+* <devicename>에서 "event" 로그 처리결과를 확인 한다 예상결과가 <expect_result2>이고 로그결과는 <log_result2>이다, 추가판단조건 sip:<traffic_sip2>, dip:"$VS_DUT01.ip", block_reason:"sn", rule_name:"nation", block_nation:<user_nation2>, ndir:<ndir> json 사용
+* 1초 동안 대기
+* <devicename>에서 "event" 로그 처리결과를 확인 한다 예상결과가 <expect_result4>이고 로그결과는 <log_result4>이다, 추가판단조건 sip:<traffic_sip4>, dip:"$VS_DUT01.ip", block_reason:"sn", rule_name:"nation", block_nation:<user_nation4>, ndir:<ndir> json 사용
+
+# HIPS:<devicename>에 IPS 테스트를 위한 기본 설정을 수행한다
+* <devicename>에서 "rm -rf /var/policy/policy_mgmt.json"를 실행한다 
+* <devicename>에서 "rm -rf /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "cp /var/policy/org/policy_mgmt.json /var/policy/policy_mgmt.json"를 실행한다
+* <devicename>에서 "cp /var/policy/org/policy_agent.json /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_mgmt.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy mgmt /var/policy/policy_mgmt.json.enc"를 실행한다
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy agent /var/policy/policy_agent.json.enc"를 실행한다
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+
+# HIPS:<devicename>에 IPS 처리 방법 및 위험도 테스트를 위한 정책을 설정 및 적용한다 (<sid>, <action>, <block_action>, <severity>, <direction>, <period>, <threshold>, <blockTime>, <raw>, <recommand>, <alarm>)
+* <devicename>에서 "policy_mgmt" 설정파일 "/var/policy/policy_mgmt.json" 정책 "predefined" sid:<sid>을 action:<action>, blockAction:<block_action>, severity:<severity>, direction:<direction>, period:<period>, threshold:<threshold>, blockTime:<blockTime>, raw:<raw>, recommand:<recommand>, alarm:<alarm> 로 변경을 한다 xpath는 "body.policy_hips_ips_mgmt.predefined.default.[*].sid" 이다
+* <devicename>에서 "policy_mgmt" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_mgmt.json"를 한다
+* <devicename>에서 "policy_mgmt" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy mgmt /var/policy/policy_mgmt.json.enc"을 한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/log"를 실행한다
+* <devicename>에서 "event=$(ls |grep ips |head -n 1)"를 실행한다
+* <devicename>에서 "rm -rf $event"를 실행한다
+
+# <devicename>에서 IPS 처리 방법 및 위험도 테스트의 탐지 트래픽을 발생시킨다 (<traffic_sip>, <sid>, <traffic_dport>, <traffic_protocol>)
+* <devicename>에서 FPG rule 파일 설정(기본시그니처용)
+* 1초 동안 대기
+* <devicename>에서 FPG로 탐지 트래픽을 발생 한다 조건은 sip:<traffic_sip>, dip:"$VS_DUT01.ip", sid:<sid>이다
+* 1초 동안 대기
+* <devicename>에서 hping으로 탐지 트래픽을 발생 한다 조건은 sip:<traffic_sip>, dip:"$VS_DUT01.ip", sport:"1024", dport:<traffic_dport>, protocol:<traffic_protocol> 이다
+* 15초 동안 대기
+
+# HIPS:<devicename>에서 IPS 테스트에 대한 이벤트 로그를 확인한다1 (<expect_result>, <log_result>, <traffic_sip>, <sid>, <action>, <block_action>, <severity>)
+* <devicename>에서 "event" 로그 처리결과를 확인 한다 예상결과가 <expect_result>이고 로그결과는 <log_result>이다, 추가판단조건 sip:<traffic_sip>, dip:"$VS_DUT01.ip", attackid:<sid>, action:<action>, blockaction:<block_action>, priority<severity> json 사용
+
+# HIPS:<devicename>에 IPS 탐지방향 및 공격 인정 테스트를 위한 정책을 설정 및 적용한다 (<internal_network_ip>, <sid>, <action>, <block_action>, <severity>, <direction>, <period>, <threshold>, <blockTime>, <raw>, <recommand>, <alarm>)
+* <devicename>에서 "policy_agent" 설정파일 "/var/policy/policy_agent.json" 정책 "internal_network":"0"의 array type 설정 "ip"을 <internal_network_ip>로 변경을 한다 xpath는 "body.policy_hips_agent.internal_network.[0].ip" 이다
+* <devicename>에서 "policy_mgmt" 설정파일 "/var/policy/policy_mgmt.json" 정책 "predefined" sid:<sid>을 action:<action>, blockAction:<block_action>, severity:<severity>, direction:<direction>, period:<period>, threshold:<threshold>, blockTime:<blockTime>, raw:<raw>, recommand:<recommand>, alarm:<alarm> 로 변경을 한다 xpath는 "body.policy_hips_ips_mgmt.predefined.default.[*].sid" 이다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_mgmt.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy agent /var/policy/policy_agent.json.enc"를 실행한다
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy mgmt /var/policy/policy_mgmt.json.enc"를 실행한다
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/log"를 실행한다
+* <devicename>에서 "event=$(ls |grep ips |head -n 1)"를 실행한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/sqlite3 /usr/local/ahnlab/chipsl/log/$event 'pragma key=\"RmxRkwl77*)tkfdkskarp80*&gkthtj\"; delete from send_failed_log;'"를 실행한다
+
+# <devicename>에서 IPS 탐지방향 및 공격 인정 테스트의 탐지 트래픽을 발생시킨다 (<traffic_sip>, <sid>, <traffic_count>, <traffic_delaytime>)
+* <devicename>에서 FPG rule 파일 설정(기본시그니처용)
+* 1초 동안 대기
+* <devicename>에서 FPG case2로 탐지 트래픽을 발생 한다 조건은 sip:<traffic_sip>, dip:"$VS_DUT01.ip", sid:<sid>, traffic_count:<traffic_count>, traffic_delaytime:<traffic_delaytime>이다
+* 15초 동안 대기
+
+# HIPS:<devicename>에서 IPS 테스트에 대한 이벤트 로그를 확인한다2 (<expect_result>, <log_result>, <traffic_sip>, <sid>, <action>, <block_action>, <severity>, <ndir>)
+* <devicename>에서 "event" 로그 처리결과를 확인 한다 예상결과가 <expect_result>이고 로그결과는 <log_result>이다, 추가판단조건 sip:<traffic_sip>, dip:"$VS_DUT01.ip", attackid:<sid>, action:<action>, blockaction:<block_action>, priority<severity>, ndir<ndir> json 사용
+
+# HIPS:<devicename>에 IPS additional 대응방법 테스트를 위한 정책을 설정 및 적용한다 (<sid>, <action>, <block_action>, <severity>, <direction>, <period>, <threshold>, <blockTime>, <raw>, <recommand>, <alarm>)
+* <devicename>에서 "policy_mgmt" 설정파일 "/var/policy/policy_mgmt.json" 정책 "additional" sid:<sid>을 action:<action>, blockAction:<block_action>, severity:<severity>, direction:<direction>, period:<period>, threshold:<threshold>, blockTime:<blockTime>, raw:<raw>, recommand:<recommand>, alarm:<alarm> 로 변경을 한다 xpath는 "body.policy_hips_ips_mgmt.additional.default.[*].sid" 이다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_mgmt.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy mgmt /var/policy/policy_mgmt.json.enc"를 실행한다
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/log"를 실행한다
+* <devicename>에서 "event=$(ls |grep ips |head -n 1)"를 실행한다
+* <devicename>에서 "rm -rf $event"를 실행한다
+
+# <devicename>에서 IPS additional 대응방법 테스트의 탐지 트래픽을 발생시킨다 (<traffic_sip>, <sid>)
+* <devicename>에서 FPG rule 파일 설정(additional 시그니처용)
+* 1초 동안 대기
+* <devicename>에서 FPG로 탐지 트래픽을 발생 한다 조건은 sip:<traffic_sip>, dip:"$VS_DUT01.ip", sid:<sid>이다
+* 15초 동안 대기
+
+# HIPS:<devicename>에 IPS additional 처리 방법 및 위험도 테스트를 위한 정책을 설정 및 적용한다 (<sid>, <action>, <block_action>, <severity>, <direction>, <period>, <threshold>, <blockTime>, <raw>, <recommand>, <alarm>)
+* <devicename>에서 "policy_mgmt" 설정파일 "/var/policy/policy_mgmt.json" 정책 "predefined" sid:<sid>을 action:<action>, blockAction:<block_action>, severity:<severity>, direction:<direction>, period:<period>, threshold:<threshold>, blockTime:<blockTime>, raw:<raw>, recommand:<recommand>, alarm:<alarm> 로 변경을 한다 xpath는 "body.policy_hips_ips_mgmt.additional.default.[*].sid" 이다
+* <devicename>에서 "policy_mgmt" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_mgmt.json"를 한다
+* <devicename>에서 "policy_mgmt" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy mgmt /var/policy/policy_mgmt.json.enc"을 한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/log"를 실행한다
+* <devicename>에서 "event=$(ls |grep ips |head -n 1)"를 실행한다
+* <devicename>에서 "rm -rf $event"를 실행한다
+
+# <devicename>에서 IPS additional 처리 방법 및 위험도 테스트의 탐지 트래픽을 발생시킨다 (<traffic_sip>, <sid>, <traffic_dport>, <traffic_protocol>)
+* <devicename>에서 FPG rule 파일 설정(additional 시그니처용)
+* 1초 동안 대기
+* <devicename>에서 FPG로 탐지 트래픽을 발생 한다 조건은 sip:<traffic_sip>, dip:"$VS_DUT01.ip", sid:<sid>이다
+* 1초 동안 대기
+* <devicename>에서 hping으로 탐지 트래픽을 발생 한다 조건은 sip:<traffic_sip>, dip:"$VS_DUT01.ip", sport:"1024", dport:<traffic_dport>, protocol:<traffic_protocol> 이다
+* 15초 동안 대기
+
+# HIPS:<devicename>에 IPS additional 탐지방향 및 공격 인정 테스트를 위한 정책을 설정 및 적용한다 (<internal_network_ip>, <sid>, <action>, <block_action>, <severity>, <direction>, <period>, <threshold>, <blockTime>, <raw>, <recommand>, <alarm>)
+* <devicename>에서 "policy_agent" 설정파일 "/var/policy/policy_agent.json" 정책 "internal_network":"0"의 array type 설정 "ip"을 <internal_network_ip>로 변경을 한다 xpath는 "body.policy_hips_agent.internal_network.[0].ip" 이다
+* <devicename>에서 "policy_mgmt" 설정파일 "/var/policy/policy_mgmt.json" 정책 "predefined" sid:<sid>을 action:<action>, blockAction:<block_action>, severity:<severity>, direction:<direction>, period:<period>, threshold:<threshold>, blockTime:<blockTime>, raw:<raw>, recommand:<recommand>, alarm:<alarm> 로 변경을 한다 xpath는 "body.policy_hips_ips_mgmt.additional.default.[*].sid" 이다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_mgmt.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy agent /var/policy/policy_agent.json.enc"를 실행한다
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy mgmt /var/policy/policy_mgmt.json.enc"를 실행한다
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/log"를 실행한다
+* <devicename>에서 "event=$(ls |grep ips |head -n 1)"를 실행한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/sqlite3 /usr/local/ahnlab/chipsl/log/$event 'pragma key=\"RmxRkwl77*)tkfdkskarp80*&gkthtj\"; delete from send_failed_log;'"를 실행한다
+
+# <devicename>에서 IPS additional 탐지방향 및 공격 인정 테스트의 탐지 트래픽을 발생시킨다 (<traffic_sip>, <sid>, <traffic_count>, <traffic_delaytime>)
+* <devicename>에서 FPG rule 파일 설정(additional 시그니처용)
+* 1초 동안 대기
+* <devicename>에서 FPG case2로 탐지 트래픽을 발생 한다 조건은 sip:<traffic_sip>, dip:"$VS_DUT01.ip", sid:<sid>, traffic_count:<traffic_count>, traffic_delaytime:<traffic_delaytime>이다
+* 15초 동안 대기
+
+# HIPS:<devicename>에 IPS 사용여부 및 모드, 대응방법 테스트를 위한 정책을 설정 및 적용한다 (<engine_mode>, <policy_enable>, <ips_mode>, <sid>, <action>, <block_action>, <severity>, <direction>, <period>, <threshold>, <blockTime>, <raw>, <recommand>, <alarm>)
+* <devicename>에서 "policy_agent" 설정파일 "/var/policy/policy_agent.json" 정책 "engine":"mode"의 string type 설정 "mode"을 <engine_mode>로 변경을 한다 xpath는 "body.policy_hips_agent.engine.mode" 이다
+* <devicename>에서 "policy_mgmt" 설정파일 "/var/policy/policy_mgmt.json" boolean type 설정 "사용여부"을 <policy_enable>로 한다 xpath는 "body.policy_hips_ips_mgmt.enable" 이다
+* <devicename>에서 "policy_mgmt" 설정파일 "/var/policy/policy_mgmt.json" string type 설정 "mode"을 <ips_mode>로 한다 xpath는 "body.policy_hips_ips_mgmt.mode" 이다
+* <devicename>에서 "policy_mgmt" 설정파일 "/var/policy/policy_mgmt.json" 정책 "predefined" sid:<sid>을 action:<action>, blockAction:<block_action>, severity:<severity>, direction:<direction>, period:<period>, threshold:<threshold>, blockTime:<blockTime>, raw:<raw>, recommand:<recommand>, alarm:<alarm> 로 변경을 한다 xpath는 "body.policy_hips_ips_mgmt.predefined.default.[*].sid" 이다
+* <devicename>에서 "policy_mgmt" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_mgmt.json"를 한다
+* <devicename>에서 "policy_mgmt" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy mgmt /var/policy/policy_mgmt.json.enc"을 한다
+* <devicename>에서 CLI:"./bin/caller ./tools/hipstest get policy mgmt" 적용결과를 확인한다
+* <devicename>에서 "policy_agent" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_agent.json"를 한다
+* <devicename>에서 "policy_agent" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy agent /var/policy/policy_agent.json.enc"을 한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/log"를 실행한다
+* <devicename>에서 "event=$(ls |grep ips |head -n 1)"를 실행한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/sqlite3 /usr/local/ahnlab/chipsl/log/$event 'pragma key=\"RmxRkwl77*)tkfdkskarp80*&gkthtj\"; delete from send_failed_log;'"를 실행한다
+
+# <devicename>에서 IPS 사용여부 및 모드, 대응방법 테스트의 탐지 트래픽을 발생시킨다 (<traffic_sip>, <sid>)
+* <devicename>에서 FPG rule 파일 설정(기본시그니처용)
+* 1초 동안 대기
+* <devicename>에서 FPG로 탐지 트래픽을 발생 한다 조건은 sip:<traffic_sip>, dip:"$VS_DUT01.ip", sid:<sid>이다
+* 15초 동안 대기
+
+# HIPS:<devicename>에 IPS 예외 IP 테스트를 위한 정책을 설정 및 적용한다 (<except_ip>, <sid>, <action>, <block_action>, <severity>, <direction>, <period>, <threshold>, <blockTime>, <raw>, <recommand>, <alarm>)
+* <devicename>에서 "policy_agent" 설정파일 "/var/policy/policy_agent.json" 정책 "except_ip":"ip"의 string type 설정 "ip"을 <except_ip>로 변경을 한다 xpath는 "body.policy_hips_agent.except_ip.[0].ip" 이다
+* <devicename>에서 "policy_mgmt" 설정파일 "/var/policy/policy_mgmt.json" 정책 "predefined" sid:<sid>을 action:<action>, blockAction:<block_action>, severity:<severity>, direction:<direction>, period:<period>, threshold:<threshold>, blockTime:<blockTime>, raw:<raw>, recommand:<recommand>, alarm:<alarm> 로 변경을 한다 xpath는 "body.policy_hips_ips_mgmt.predefined.default.[*].sid" 이다
+* <devicename>에서 "policy_mgmt" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_mgmt.json"를 한다
+* <devicename>에서 "policy_mgmt" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy mgmt /var/policy/policy_mgmt.json.enc"을 한다
+* <devicename>에서 "policy_agent" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_agent.json"를 한다
+* <devicename>에서 "policy_agent" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy agent /var/policy/policy_agent.json.enc"을 한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/log"를 실행한다
+* <devicename>에서 "event=$(ls |grep ips |head -n 1)"를 실행한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/sqlite3 /usr/local/ahnlab/chipsl/log/$event 'pragma key=\"RmxRkwl77*)tkfdkskarp80*&gkthtj\"; delete from send_failed_log;'"를 실행한다
+
+# <devicename>에서 IPS 예외 IP 테스트의 탐지 트래픽을 발생시킨다 (<traffic_sip>, <sid>)
+* <devicename>에서 FPG rule 파일 설정(기본시그니처용)
+* 1초 동안 대기
+* <devicename>에서 FPG로 탐지 트래픽을 발생 한다 조건은 sip:<traffic_sip>, dip:"$VS_DUT01.ip", sid:<sid>이다
+* 15초 동안 대기
+
+# HIPS:<devicename>에 최대값 IPS 테스트를 위한 기본 설정을 수행한다
+* <devicename>에서 "rm -rf /var/policy/policy_mgmt.json"를 실행한다 
+* <devicename>에서 "rm -rf /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "cp /var/policy/org/policy_mgmt.json /var/policy/policy_mgmt.json"를 실행한다
+* <devicename>에서 "cp /var/policy/org/policy_agent_max_intip_exceptip_user_nation.json /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_mgmt.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy mgmt /var/policy/policy_mgmt.json.enc"를 실행한다
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy agent /var/policy/policy_agent.json.enc"를 실행한다
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+
+
+
+# HIPS:<devicename>에 최대 예외 IP가 추가된 상태에서의 동작을 확인한다 (<except_name1>, <except_name2>, <except_name3>, <except_ip1>, <except_ip2>, <description>, <sid>, <action>, <block_action>, <severity>, <direction>, <period>, <threshold>, <blockTime>, <raw>, <recommand>, <alarm>)
+AGENT 정책 최대 추가된 상태에서 룰 1개 삭제 후 추가 확인
+예외IP 1개 삭제 및 적용
+* <devicename>에서 "policy_agent" 설정파일 "/var/policy/policy_agent.json" Agent 정책에 name:<except_name3>을 삭제. xpath는 "body.policy_hips_agent.except_ip.[*].name"이다
+* <devicename>에서 "policy_agent" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_agent.json"를 한다
+* <devicename>에서 "policy_agent" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy agent /var/policy/policy_agent.json.enc"을 한다
+예외IP 1개 추가 및 적용
+* <devicename>에서 "policy_agent" 설정파일 "/var/policy/policy_agent.json" Agent 정책에 rule:"except_ip", name:<except_name1>, ip:<except_ip1>, description<description>로 추가. xpath는 "body.policy_hips_agent.except_ip"이다
+* <devicename>에서 "policy_agent" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_agent.json"를 한다
+* <devicename>에서 "policy_agent" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy agent /var/policy/policy_agent.json.enc"을 한다
+AGENT 정책 최대 추가된 상태에서 일부 룰 변경
+* <devicename>에서 "policy_agent" 설정파일 "/var/policy/policy_agent.json" 정책 "name":<except_name2>을 ip:<except_ip2> 로 변경을 한다 xpath는 "body.policy_hips_agent.except_ip.[*].name" 이다
+policy_agent.json 암호화 및 정책적용
+* <devicename>에서 "policy_agent" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_agent.json"를 한다
+* <devicename>에서 "policy_agent" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy agent /var/policy/policy_agent.json.enc"을 한다
+* <devicename>에서 DB:"./sqlite3 /usr/local/ahnlab/chipsl/db/agent_policy_curr.db 'pragma key='test'; select * from config;'" 적용결과를 확인한다
+* <devicename>에서 "policy_mgmt" 설정파일 "/var/policy/policy_mgmt.json" 정책 "predefined" sid:<sid>을 action:<action>, blockAction:<block_action>, severity:<severity>, direction:<direction>, period:<period>, threshold:<threshold>, blockTime:<blockTime>, raw:<raw>, recommand:<recommand>, alarm:<alarm> 로 변경을 한다 xpath는 "body.policy_hips_ips_mgmt.predefined.default.[*].sid" 이다
+* <devicename>에서 "policy_mgmt" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_mgmt.json"를 한다
+* <devicename>에서 "policy_mgmt" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy mgmt /var/policy/policy_mgmt.json.enc"을 한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/log"를 실행한다
+* <devicename>에서 "event=$(ls |grep ips |head -n 1)"를 실행한다
+* <devicename>에서 "rm -rf $event"를 실행한다
+
+# <devicename>에서 최대값 IPS 테스트의 탐지 트래픽을 발생시킨다 (<traffic_sip1>, <traffic_sip2>, <traffic_sip3>, <traffic_sip4>, <sid>)
+* <devicename>에서 FPG rule 파일 설정(기본시그니처용)
+* 1초 동안 대기
+* <devicename>에서 FPG로 탐지 트래픽을 발생 한다 조건은 sip:<traffic_sip1>, dip:"$VS_DUT01.ip", sid:<sid>이다
+* 1초 동안 대기
+* <devicename>에서 FPG로 탐지 트래픽을 발생 한다 조건은 sip:<traffic_sip2>, dip:"$VS_DUT01.ip", sid:<sid>이다
+* 1초 동안 대기
+* <devicename>에서 FPG로 탐지 트래픽을 발생 한다 조건은 sip:<traffic_sip4>, dip:"$VS_DUT01.ip", sid:<sid>이다
+* 1초 동안 대기
+* <devicename>에서 FPG로 탐지 트래픽을 발생 한다 조건은 sip:<traffic_sip3>, dip:"$VS_DUT01.ip", sid:<sid>이다
+* 15초 동안 대기
+
+# HIPS:<devicename>에서 최대값 IPS 테스트에 대한 이벤트 로그를 확인한다 (<expect_result1>, <expect_result2>, <expect_result3>, <expect_result4>, <log_result1>, <log_result2>, <log_result3>, <log_result4>, <traffic_sip1>, <traffic_sip2>, <traffic_sip3>, <traffic_sip4>, <sid>, <action>, <block_action>, <severity>)
+* <devicename>에서 "event" 로그 처리결과를 확인 한다 예상결과가 <expect_result1>이고 로그결과는 <log_result1>이다, 추가판단조건 sip:<traffic_sip1>, dip:"$VS_DUT01.ip", attackid:<sid>, action:<action>, blockaction:<block_action>, priority<severity> json 사용
+* 1초 동안 대기
+* <devicename>에서 "event" 로그 처리결과를 확인 한다 예상결과가 <expect_result2>이고 로그결과는 <log_result2>이다, 추가판단조건 sip:<traffic_sip2>, dip:"$VS_DUT01.ip", attackid:<sid>, action:<action>, blockaction:<block_action>, priority<severity> json 사용
+* 1초 동안 대기
+* <devicename>에서 "event" 로그 처리결과를 확인 한다 예상결과가 <expect_result3>이고 로그결과는 <log_result3>이다, 추가판단조건 sip:<traffic_sip3>, dip:"$VS_DUT01.ip", attackid:<sid>, action:<action>, blockaction:<block_action>, priority<severity> json 사용
+* 1초 동안 대기
+* <devicename>에서 "event" 로그 처리결과를 확인 한다 예상결과가 <expect_result4>이고 로그결과는 <log_result4>이다, 추가판단조건 sip:<traffic_sip4>, dip:"$VS_DUT01.ip", attackid:<sid>, action:<action>, blockaction:<block_action>, priority<severity> json 사용
+
+# HIPS:<devicename>에 최대 내부 IP가 추가된 상태에서의 동작을 확인한다 (<intnet_name1>, <intnet_name2>, <intnet_name3>, <internal_network1>, <internal_network2>, <description>, <sid>, <action>, <block_action>, <severity>, <direction>, <period>, <threshold>, <blockTime>, <raw>, <recommand>, <alarm>)
+AGENT 정책 최대 추가된 상태에서 룰 1개 삭제 후 추가 확인
+내부 네트워크 IP 1개 삭제 및 적용
+* <devicename>에서 "policy_agent" 설정파일 "/var/policy/policy_agent.json" Agent 정책에 name:<intnet_name3>을 삭제. xpath는 "body.policy_hips_agent.internal_network.[*].name"이다
+* <devicename>에서 "policy_agent" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_agent.json"를 한다
+* <devicename>에서 "policy_agent" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy agent /var/policy/policy_agent.json.enc"을 한다
+내부 네트워크 IP 1개 추가 및 적용
+* <devicename>에서 "policy_agent" 설정파일 "/var/policy/policy_agent.json" Agent 정책에 rule:"internal_network", name:<intnet_name1>, ip:<internal_network1>, description<description>로 추가. xpath는 "body.policy_hips_agent.internal_network"이다
+* <devicename>에서 "policy_agent" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_agent.json"를 한다
+* <devicename>에서 "policy_agent" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy agent /var/policy/policy_agent.json.enc"을 한다
+AGENT 정책 최대 추가된 상태에서 일부 룰 변경
+* <devicename>에서 "policy_agent" 설정파일 "/var/policy/policy_agent.json" 정책 "name":<intnet_name2>을 ip:<internal_network2> 로 변경을 한다 xpath는 "body.policy_hips_agent.internal_network.[*].name" 이다
+policy_agent.json 암호화 및 정책적용
+* <devicename>에서 "policy_agent" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_agent.json"를 한다
+* <devicename>에서 "policy_agent" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy agent /var/policy/policy_agent.json.enc"을 한다
+* <devicename>에서 "policy_mgmt" 설정파일 "/var/policy/policy_mgmt.json" 정책 "predefined" sid:<sid>을 action:<action>, blockAction:<block_action>, severity:<severity>, direction:<direction>, period:<period>, threshold:<threshold>, blockTime:<blockTime>, raw:<raw>, recommand:<recommand>, alarm:<alarm> 로 변경을 한다 xpath는 "body.policy_hips_ips_mgmt.predefined.default.[*].sid" 이다
+* <devicename>에서 "policy_mgmt" 정책 암호화 CLI:"./bin/caller ./tools/encrypt enc /var/policy/policy_mgmt.json"를 한다
+* <devicename>에서 "policy_mgmt" 정책 적용 CLI:"./bin/caller ./tools/hipstest set policy mgmt /var/policy/policy_mgmt.json.enc"을 한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/log"를 실행한다
+* <devicename>에서 "event=$(ls |grep ips |head -n 1)"를 실행한다
+* <devicename>에서 "rm -rf $event"를 실행한다
+
+===========================================================
+
+# P_L_<devicename>에서 IPS 신규 시그니처 옵션 테스트의 탐지 트래픽을 발생시킨다 (<traffic_protocol1>)
+* P_L_<devicename>에서 tcpreplay로 탐지 트래픽을 발생 한다 조건은 dip:"$VS_DUT01.ip", protocol:<traffic_protocol1> 이다
+* 1초 동안 대기
+
+# P_L_<devicename>에서 tcpreplay로 탐지 트래픽을 발생 한다 조건은 dip:<dip>, protocol:<protocol> 이다
+탐지 트래픽 발생
+* <devicename>에서 protocol:<protocol> dip:<dip> tcpreplay 트래픽 인가
+EXEC 실행 결과 코드는 "0"와 같다
+* 1초 동안 대기
+
+# P_L_<devicename>에서 Host Sweep 테스트의 탐지 트래픽을 발생시킨다 (<dip>, <traffic_protocol1>)
+* P_L_<devicename>에서 Host Sweep 탐지 트래픽을 발생 한다 조건은 dip:<dip>, protocol:<traffic_protocol1> 이다
+
+# P_L_<devicename>에서 Host Sweep 탐지 트래픽을 발생 한다 조건은 dip:<dip>, protocol:<protocol> 이다
+탐지 트래픽 발생
+* <devicename>에서 protocol:<protocol> dip:<dip> 트래픽 발생
+EXEC 실행 결과 코드는 "0"와 같다
+
+# HIPS:<devicename>에 사용자 정의 시그니처 테스트를 위한 기본 설정을 수행한다
+* <devicename>에서 "rm -rf /var/policy/policy_mgmt.json"를 실행한다 
+* <devicename>에서 "rm -rf /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "rm -rf /var/policy/policy_fw.json"를 실행한다
+* <devicename>에서 "cp /var/policy/org/policy_mgmt_user.json /var/policy/policy_mgmt.json"를 실행한다
+* <devicename>에서 "cp /var/policy/org/policy_fw_user.json /var/policy/policy_fw.json"를 실행한다
+* <devicename>에서 "cp /var/policy/org/policy_agent_user.json /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_mgmt.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy mgmt /var/policy/policy_mgmt.json.enc"를 실행한다
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_fw.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy fw /var/policy/policy_fw.json.enc"를 실행한다
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy agent /var/policy/policy_agent.json.enc"를 실행한다
+\* EXEC 실행 결과의 Json XPath:"header.result"의 값은 Number value:"0"와 같다
+
+# HIPS:<devicename>에 사용자 정의 시그니처 대응방법 테스트를 위한 정책을 설정 및 적용한다 (<sid>, <action>, <block_action>, <severity>, <direction>, <period>, <threshold>, <blockTime>, <raw>, <recommand>, <alarm>)
+* <devicename>에서 "policy_mgmt" 설정파일 "/var/policy/policy_mgmt.json" 정책 "additional" sid:<sid>을 action:<action>, blockAction:<block_action>, severity:<severity>, direction:<direction>, period:<period>, threshold:<threshold>, blockTime:<blockTime>, raw:<raw>, recommand:<recommand>, alarm:<alarm> 로 변경을 한다 xpath는 "body.policy_hips_ips_mgmt.predefined.user.[*].sid" 이다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_mgmt.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy mgmt /var/policy/policy_mgmt.json.enc"를 실행한다
+
+# HIPS:<devicename>에서 사용자 정의 시그니처 대응방법 테스트에 대한 이벤트 로그를 확인한다 (<expect_result>, <log_result>, <traffic_sip>, <sid>, <action>, <block_action>, <severity>)
+* HIPS:<devicename>에서 "event" 사용자 정의 시그니처 대응 방법 로그 처리 결과를 확인 한다 예상결과가 <expect_result>이고 로그결과는 <log_result>이다, 추가판단조건 sip:<traffic_sip>, dip:"$VS_DUT01.ip", attackid:<sid>, action:<action>, blockaction:<block_action>, priority<severity> json 사용
+
+# HIPS:<devicename>에서 <hipslogtype> 사용자 정의 시그니처 대응 방법 로그 처리 결과를 확인 한다 예상결과가 <expect_result>이고 로그결과는 <log_result>이다, 추가판단조건 sip:<traffic_sip>, dip:<traffic_dip>, attackid:<sid>, action:<block>, blockaction:<block_action>, priority<priority> json 사용
+* <devicename>에서 "ls -al /usr/local/ahnlab/chipsl/log/"를 실행한다
+* <devicename>에서 IPS 이벤트 로그를 확인한다
+* Sqlite 실행 결과 메시지를 Json 형태로 변환 해서 Json Name:"logresult"으로 생성한다
+* Json Name:"expectedlogobj"를 Object Table을 통해 생성한다
+    |key    |type   |value |
+    |-------|-------|------|
+    |src_ip    |string|<traffic_sip>|
+    |dst_ip    |string|<traffic_dip>|
+    |attackid    |string|<sid>|
+    |block    |string|<block>|
+    |block_action    |string|<block_action>|
+    |priority    |string|<priority>|
+
+* Json Name:"expectedlogobj"을 보여준다
+Json Name:"logresult"의 XPATH:"[*]"의 값은 Object value:"expectedlogobj"를 포함한다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block" or "detect" 조건2:"logcheck"에 부합할 때 Json Name:"logresult"의 XPATH:"[*]"의 값은 Object value:"expectedlogobj"를 포함하고 부합하지 않으면 포함하지 않는다
+
+# <devicename>에서 사용자 정의 시그니처 대응방법 테스트 탐지 트래픽을 발생시킨다 (<traffic_sip>, <sid>)
+* <devicename>에서 FPG rule 파일 설정(additional 시그니처용)
+* 1초 동안 대기
+* P_W_<devicename>에서 FPG로 user sig 탐지 트래픽을 발생 한다 조건은 sip:<traffic_sip>, dip:"$VS_DUT01.ip", sid:<sid>이다
+* 3초 동안 대기
+
+# HIPS:<devicename>에 사용자 정의 시그니처 탐지 방향 및 공격 인정 임계치 테스트를 위한 정책을 설정 및 적용한다 (<sid>, <action>, <block_action>, <severity>, <direction>, <period>, <threshold>, <blockTime>, <raw>, <recommand>, <alarm>)
+* <devicename>에서 "policy_mgmt" 설정파일 "/var/policy/policy_mgmt.json" 정책 "predefined" sid:<sid>을 action:<action>, blockAction:<block_action>, severity:<severity>, direction:<direction>, period:<period>, threshold:<threshold>, blockTime:<blockTime>, raw:<raw>, recommand:<recommand>, alarm:<alarm> 로 변경을 한다 xpath는 "body.policy_hips_ips_mgmt.predefined.user.[*].sid" 이다
+* <devicename>에서 "policy_agent" 설정파일 "/var/policy/policy_agent.json" 정책 "predefined" sid:<sid>을 action:<action>, blockAction:<block_action>, severity:<severity>, direction:<direction>, period:<period>, threshold:<threshold>, blockTime:<blockTime>, raw:<raw>, recommand:<recommand>, alarm:<alarm> 로 변경을 한다 xpath는 "body.policy_hips_ips_mgmt.predefined.user.[*].sid" 이다
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_mgmt.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy mgmt /var/policy/policy_mgmt.json.enc"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/encrypt enc /var/policy/policy_agent.json"를 실행한다
+* <devicename>에서 "./bin/caller ./tools/hipstest set policy agent /var/policy/policy_agent.json.enc"를 실행한다
+
+# HIPS:<devicename>에서 사용자 정의 시그니처 탐지 방향 및 공격 인정 임계치 테스트에 대한 이벤트 로그를 확인한다 (<expect_result>, <log_result>, <traffic_sip>, <sid>, <action>, <block_action>, <severity>, <ndir>)
+* HIPS:<devicename>에서 "event" 로그 처리결과를 확인 한다 예상결과가 <expect_result>이고 로그결과는 <log_result>이다, 추가판단조건 sip:<traffic_sip>, dip:"$VS_DUT01.ip", attackid:<sid>, action:<action>, blockaction:<block_action>, priority<severity>, ndir<ndir> json 사용
+
+# HIPS:<devicename>에서 <hipslogtype> 로그 처리결과를 확인 한다 예상결과가 <expect_result>이고 로그결과는 <log_result>이다, 추가판단조건 sip:<traffic_sip>, dip:<traffic_dip>, attackid:<sid>, action:<block>, blockaction:<block_action>, priority<priority>, ndir<ndir> json 사용
+* <devicename>에서 "ls -al /usr/local/ahnlab/chipsl/log/"를 실행한다
+* <devicename>에서 IPS 이벤트 로그를 확인한다
+* Sqlite 실행 결과 메시지를 Json 형태로 변환 해서 Json Name:"logresult"으로 생성한다
+* Json Name:"logresult"을 보여준다
+* Json Name:"expectedlogobj"를 Object Table을 통해 생성한다
+    |key    |type   |value |
+    |-------|-------|------|
+    |src_ip    |string|<traffic_sip>|
+    |dst_ip    |string|<traffic_dip>|
+    |attackid    |string|<sid>|
+    |block    |string|<block>|
+    |block_action    |string|<block_action>|
+    |priority    |string|<priority>|
+    |ndir    |string|<ndir>|
+* Json Name:"expectedlogobj"을 보여준다
+* 판단 기준 값 <expect_result>와 <log_result>가 조건1:"block" 조건2:"logcheck"에 부합할 때 Json Name:"logresult"의 XPATH:"[*]"의 값은 Object value:"expectedlogobj"를 포함하고 부합하지 않으면 포함하지 않는다
+* 3초 동안 대기
+* <devicename>에서 "cd /usr/local/ahnlab/chipsl/log"를 실행한다
+* <devicename>에서 "event=$(ls |grep ips |head -n 1)"를 실행한다
+* <devicename>에서 "cat /dev/null > $event"를 실행한다
+
+# P_W_<devicename>에서 사용자 정의 시그니처 탐지방향 및 공격 임계치 테스트의 탐지 트래픽을 발생시킨다 (<traffic_sip>, <sid>, <traffic_count>, <traffic_delaytime>)
+* <devicename>에서 FPG rule 파일 설정(additional 시그니처용)
+* 1초 동안 대기
+* <devicename>에서 FPG case2로 탐지 트래픽을 발생 한다 조건은 sip:<traffic_sip>, dip:"$VS_DUT01.ip", sid:<sid>, traffic_count:<traffic_count>, traffic_delaytime:<traffic_delaytime>이다
+* 3초 동안 대기
